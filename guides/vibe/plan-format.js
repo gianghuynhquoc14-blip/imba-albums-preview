@@ -1,9 +1,10 @@
 'use strict';
 (() => {
-  const kinds = {personal:'Личный разворот',teachers:'Учителя',serious:'Серьёзная общая',fun:'Весёлая общая',portraits:'Портреты, имена и цитаты',companies:'Классические компании',creative:'Творческие компании',archive:'Школьный архив',photobooth:'Фотобудка',idea:'Своя идея / свободное место'};
+  const kinds = {personal:'Личный разворот',teachers:'Учителя',outdoor:'Общая в другой локации',serious:'Серьёзная общая',fun:'Весёлая общая',portraits:'Портреты, имена и цитаты',companies:'Классические компании',creative:'Творческие компании',archive:'Школьный архив',photobooth:'Фотобудка',idea:'Своя идея / свободное место'};
   const statuses={idea:'Идея',prepare:'Нужно подготовить',shoot:'Нужно снять',done:'Готово'};
   const rect=(x,y,w,h)=>({x,y,w,h});
   const layouts=[
+    {id:'outdoor-mix',label:'Общий кадр крупно + компании',rects:[rect(4,6,92,58),rect(4,70,28,24),rect(36,70,28,24),rect(68,70,28,24)]},
     {id:'full',label:'1 · весь разворот',rects:[rect(4,6,92,88)]},
     {id:'two',label:'2 · по одной',rects:[rect(4,6,42,88),rect(54,6,42,88)]},
     {id:'three-left',label:'3 · две слева',rects:[rect(4,6,42,41),rect(4,53,42,41),rect(54,6,42,88)]},
