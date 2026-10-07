@@ -225,6 +225,7 @@ memorySection.examples=[{"label": "Красный свет — серьёзны�
 memorySection.caption='Каждая подборка — отдельная локация одной фотобудки. Камера и свет остаются на месте, а ребята меняют позы, компании и реквизит. Здесь примеры кадров, а не готовый печатный макет.';
 
 setExamples('portraits',[["Пример 1", "vibe-portraits-quotes/06-000.jpg", "Портреты Вайба с именами, цитатами и рисунками"], ["Пример 2", "vibe-portraits-quotes/07-000.jpg", "Портреты Вайба с именами, цитатами и рисунками"], ["Пример 3", "vibe-portraits-quotes/08-000.jpg", "Портреты Вайба с именами, цитатами и рисунками"], ["Пример 4", "vibe-portraits-quotes/09-000.jpg", "Портреты Вайба с именами, цитатами и рисунками"]],'Два человека на странице, четыре на развороте. Портреты чередуются с именами, цитатами и рисунками. Можно предложить своё оформление.');
+memorySection.examples.unshift({label:'Готовый макет фотобудки',images:['photobooth-layout/04-000.jpg'],alt:'Готовый макет фотобудки: девять фотографий в одной локации с рисунками'});
 const coverExamples=[
   {key:'eye',file:'00-008.jpg',label:'Глаз ученика',alt:'Полная развёртка чёрной обложки с настоящим глазом ученика',description:'На обложке — настоящий глаз ученика. Дальше — то, каким он запомнит школу.',focalX:.74},
   {key:'school',file:'00-000.jpg',label:'Школа как иллюстрация',alt:'Полная развёртка рисованной обложки со школой',description:'Знакомая школа превращается в иллюстрацию. Внутри — люди и истории, которые её оживляют.',focalX:.74},
@@ -271,7 +272,7 @@ function renderSpread(focus = false) {
   $('findIdeaPrompt').hidden=!section.id.startsWith('personal');
   $('portraitArchive').hidden=section.id!=='portraits';
   $('generalArchive').hidden=!['serious','fun'].includes(section.id);
-  $('spreadCaption').textContent = (['memories','creativeGroups'].includes(section.id)?'Идеи для фотографий: отдельные кадры показывают позы, свет и реквизит, а не готовую компоновку разворота. ':'Пример оформления разворота. ')+section.caption; $('captionDetails').open=false;
+  $('spreadCaption').textContent = (section.id==='memories'&&currentExample===0?'Готовый макет фотобудки: пример расположения фотографий и рисунков. ':['memories','creativeGroups'].includes(section.id)?'Идеи для фотографий: отдельные кадры показывают позы, свет и реквизит, а не готовую компоновку разворота. ':'Пример оформления разворота. ')+section.caption; $('captionDetails').open=false;
   const media = $('spreadMedia'); media.replaceChildren();
   if(section.examples) {
     const example = section.examples[currentExample];
