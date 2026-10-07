@@ -49,3 +49,5 @@
 
 /* Заметное описание раздела Вайб */
 .spread-heading{flex-direction:column;align-items:stretch;gap:18px}.spread-heading>p{max-width:none;margin:0;padding:18px 22px;background:#242822;border-left:3px solid var(--accent);font-size:16px;color:var(--paper);line-height:1.65}
+
+.guide-audience-help{max-width:1170px;margin:16px auto;padding:0 4.5vw;color:var(--muted);font-size:14px;line-height:1.6}

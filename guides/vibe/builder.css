@@ -13,3 +13,10 @@
 .guide-breadcrumbs{display:flex;flex-wrap:wrap;gap:10px;align-items:center;max-width:1440px;margin:0 auto;padding:14px 4.5vw;font-size:14px;color:var(--muted)}.guide-breadcrumbs a{color:var(--accent);padding:5px 0}.guide-breadcrumbs a:hover{text-decoration:underline}
 
 .portrait-copy-block{position:absolute;background:#fff;color:#242820;padding:12px;overflow:auto;white-space:pre-wrap}.portrait-copy-block b{display:block;font-size:clamp(10px,1.4vw,20px)}.portrait-copy-block p{font-size:clamp(9px,1vw,15px);line-height:1.4}
+
+/* Проверка читаемости на телефоне */
+#addSpreadTools{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0}#addSpreadKind{flex:1 1 220px;min-height:46px;max-width:100%}
+.photo-slot .empty-slot{overflow-wrap:anywhere;text-align:center;padding:6px}
+#spreadExamplesDialog{width:min(1000px,calc(100% - 24px));max-height:90svh;overflow:auto;background:var(--paper);color:var(--ink);padding:22px;border-radius:6px}
+#spreadExamplesDialog button{min-height:44px}#spreadExamplesDialog .preview-toolbar{position:sticky;top:-22px;background:var(--paper);z-index:2}
+@media(max-width:600px){#spreadList{grid-template-columns:repeat(2,minmax(0,1fr))}.spread-thumb{font-size:13px}.portrait-copy-block{padding:4px}.portrait-copy-block b{font-size:10px}.portrait-copy-block p{font-size:9px}.layout-button{max-width:100%}.layout-button span{white-space:normal}.editor-navigation{flex-wrap:wrap}#spreadExamplesDialog{padding:14px}}

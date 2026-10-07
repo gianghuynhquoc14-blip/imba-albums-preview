@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#171918"><title>Собрать общий план класса — Вайб</title>
-  <link rel="stylesheet" href="builder.css?v=c8afe016c3"><script src="plan-format.js?v=a270fef4a4" defer></script><script src="ideas.js?v=36968c9362" defer></script><script src="builder.js?v=107c042cbe" defer></script>
+  <link rel="stylesheet" href="builder.css?v=80c502683d"><script src="plan-format.js?v=c2a061ca93" defer></script><script src="ideas.js?v=36968c9362" defer></script><script src="builder.js?v=b95b271776" defer></script>
   <link rel="stylesheet" href="ideas.css?v=df2a00691e">
 </head>
 <body>
@@ -11,8 +11,8 @@
   <nav class="guide-breadcrumbs" aria-label="Путь по сайту"><a href="/">ИМБА</a><span aria-hidden="true">/</span><a href="/guides/">Путеводители</a><span aria-hidden="true">/</span><a href="./">Вайб</a></nav>
   <main>
     <div class="builder-title"><div><h1>Собрать общий план класса</h1><p>Выбери окошки. Добавь фото или идеи. Запиши, что хочешь снять.</p></div><button id="newProject" class="quiet">Новый план</button></div>
-    <ol class="how-to"><li><b>1. Посмотри примеры</b><span>Вдохновись и придумай своё.</span></li><li><b>2. Собери план</b><span>Выбери окошки, добавь фото и пояснения.</span></li><li><b>3. Передай команде</b><span>Скачай проект и отправь ответственному.</span></li></ol>
-    <details class="quick-help"><summary>Как пользоваться планом?</summary><ol><li>Выберите общий раздел и расположение кадров.</li><li>Добавьте пример или опишите задумку словами.</li><li>Скачайте проект и отправьте фотографу.</li></ol><p>Это план съёмки. Два личных разворота остаются в составе альбома, но их сборка на сайте пока недоступна.</p><p>Проект можно открыть и продолжить. PDF нужен для просмотра.</p></details>
+    <ol class="how-to"><li><b>1. Посмотри примеры</b><span>Вдохновись и придумай своё.</span></li><li><b>2. Собери план</b><span>Выбери окошки, добавь фото и пояснения.</span></li><li><b>3. Передай фотографу</b><span>Скачай проект и отправь ответственному.</span></li></ol>
+    <details class="quick-help"><summary>Как пользоваться планом?</summary><ol><li>Выберите общий раздел и расположение кадров.</li><li>Добавьте пример или опишите задумку словами.</li><li>Скачайте проект и отправьте фотографу.</li></ol><p>Это план съёмки. Два личных разворота остаются в составе альбома, но их сборка на сайте пока недоступна.</p><p>Файл .vibe — редактируемый проект с картинками и комментариями. Его можно открыть здесь и продолжить. PDF — удобная копия для просмотра. После заполнения скачайте оба файла и отправьте фотографу.</p></details>
     <aside class="context-help" aria-label="Сначала договоритесь"><span class="help-label">Сначала договоритесь</span><details><summary>Зачем один ответственный?</summary><p>Он собирает идеи и решения класса и передаёт общий согласованный результат фотографу. Так пожелания не теряются в разных сообщениях.</p></details><details><summary>Как выбрать место и стиль?</summary><p>Выберите место заранее и проверьте доступ к нему. Для классических портретов нужен единый стиль класса. Сложный референс покажите фотографу хотя бы за неделю.</p></details></aside><section class="setup" aria-label="Настройки плана">
       <label hidden>Что собираем<select id="projectMode"><option value="class">Общий план класса · 14 разворотов</option></select></label>
       <label>Класс / школа<input id="projectClass" placeholder="Например, 11Б · школа 30" maxlength="100"></label>
@@ -24,12 +24,12 @@
     <div id="legacyPlanNotice" class="quick-help" hidden></div><div id="saveToolbarLinks" aria-live="polite"></div>
     <input type="file" id="projectFile" accept=".vibe,.json,application/json" hidden>
     <input type="file" id="personalFile" accept=".vibe,.json,application/json" hidden>
-    <p class="local-note">Фотографии остаются в этом браузере. PDF и файл проекта передай команде самостоятельно. Это план; окончательный макет появится после съёмки, выбора и ретуши кадров.</p>
+    <p class="local-note">Черновик сохраняется только на этом устройстве и в этом браузере. На другом телефоне он сам не появится. Файл проекта и PDF передайте фотографу или ответственному за альбом самостоятельно. Это план; окончательный макет появится после съёмки, выбора и ретуши кадров.</p>
     <details id="styleDetails" class="style-card"><summary>Единый стиль классических портретов</summary><p>Выбираем один стиль для всего класса: свет, фон, одежду и оформление. Личные развороты каждый наполняет свободно.</p><label>Как снимаем портреты<textarea id="portraitStyle" rows="3" placeholder="Общее направление, фон, свет, одежда; что хотим изменить в примере…" maxlength="4000"></textarea></label><label class="style-ref">Референс общего стиля<input type="file" id="styleUpload" accept="image/jpeg,image/png,image/webp"></label><div id="stylePreview"></div></details>
     <details class="quick-help"><summary>Что ещё нужно указать?</summary><div id="validation" class="validation" role="status"></div></details>
     <section class="album-overview" aria-label="Все развороты"><div class="section-line"><h2>План альбома</h2><span id="spreadCount"></span></div><nav id="spreadList" aria-label="Выбрать разворот"></nav></section>
     <section class="editor" aria-labelledby="editorTitle">
-      <div class="editor-header"><div><span id="editorNumber" class="eyebrow"></span><h2 id="editorTitle">Личный разворот</h2></div><div class="move-actions"><button id="moveEarlier" class="quiet">Раньше</button><button id="moveLater" class="quiet">Позже</button></div></div>
+      <div class="editor-header"><div><span id="editorNumber" class="eyebrow"></span><h2 id="editorTitle">Учителя</h2></div><div class="move-actions"><button id="moveEarlier" class="quiet">Раньше</button><button id="moveLater" class="quiet">Позже</button></div></div>
       <div class="spread-settings"><label>Раздел<select id="spreadKind"></select></label><label>Название / задумка<input id="spreadTitle" maxlength="150" placeholder="Как назовём эту историю?"></label><label>Место съёмки<input id="spreadLocation" maxlength="200" placeholder="Кабинет, коридор, спортзал…"></label></div>
       <p id="sectionHint" class="hint"></p>
       <div id="builderIdeaPrompt" class="idea-prompt"><p>Нет идеи? Посмотри архив, выбери своё направление и добавь референс с комментарием.</p><button type="button" data-open-ideas aria-haspopup="dialog">Найти идею для своего кадра</button></div>
@@ -47,7 +47,7 @@
       </section>
       <label class="spread-comment">Комментарий ко всему развороту<textarea id="spreadComment" rows="3" maxlength="4000" placeholder="Общая задумка, участники, договорённости…"></textarea></label>
       <aside class="context-help" aria-label="Когда фотографии уже выбраны"><span class="help-label">Когда фотографии уже выбраны</span><details><summary>Что входит в обработку?</summary><p>Базовая обработка сохраняет естественную внешность и убирает временные недостатки. Пожелания по постоянным особенностям напишите заранее. Смена одежды, причёски, фона или фигуры автоматически не подразумевается; состав обработки уточняем по услуге.</p></details><details><summary>Что проверить перед печатью?</summary><p>Фотографии, имена, фамилии, цитаты и подписи. Передайте замечания одним списком через ответственного. После исправлений подтвердите готовый макет.</p></details></aside><div class="editor-navigation"><button id="previousSpread" class="quiet">Предыдущий разворот</button><button id="previewAlbum" class="accent">Проверить весь план</button><button id="nextSpread" class="quiet">Следующий разворот</button></div>
-      <p class="hint">Закончил? Проверь весь план, затем нажми «Скачать проект для отправки» вверху. Файл нужно отправить самостоятельно — сайт пока ничего не пересылает.</p>
+      <div class="editor-navigation"><button type="button" class="accent" id="saveProjectBottom">Скачать проект</button><button type="button" class="quiet" id="downloadPdfBottom">Скачать PDF</button></div><p class="hint">Закончил? Проверь весь план, затем нажми «Скачать проект для отправки» вверху или «Скачать проект» ниже. Файл нужно отправить самостоятельно — сайт пока ничего не пересылает.</p>
     </section>
   </main>
   <dialog id="spreadExamplesDialog" aria-labelledby="spreadExamplesTitle"><div class="preview-toolbar"><h2 id="spreadExamplesTitle">Примеры разворотов</h2><button id="closeSpreadExamples" class="quiet" type="button">Вернуться к заполнению</button></div><p>Так выглядят примеры других ребят. Свой замысел обсудите с фотографом.</p><div id="spreadExamplesBody"></div></dialog>
