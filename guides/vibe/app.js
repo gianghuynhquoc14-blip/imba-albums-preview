@@ -267,10 +267,11 @@ function renderSpread(focus = false) {
   $('sectionNumber').textContent = section.kicker;
   $('mapTitle').textContent = section.title;
   $('spreadLead').textContent = section.lead;
+  $('spreadCaption').dataset.exampleType=['memories','creativeGroups'].includes(section.id)?'photos':'spread';
   $('findIdeaPrompt').hidden=!section.id.startsWith('personal');
   $('portraitArchive').hidden=section.id!=='portraits';
   $('generalArchive').hidden=!['serious','fun'].includes(section.id);
-  $('spreadCaption').textContent = section.caption; $('captionDetails').open=false;
+  $('spreadCaption').textContent = (['memories','creativeGroups'].includes(section.id)?'Идеи для фотографий: отдельные кадры показывают позы, свет и реквизит, а не готовую компоновку разворота. ':'Пример оформления разворота. ')+section.caption; $('captionDetails').open=false;
   const media = $('spreadMedia'); media.replaceChildren();
   if(section.examples) {
     const example = section.examples[currentExample];
