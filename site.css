@@ -10,3 +10,8 @@ section[id]{scroll-margin-top:120px}.company-header{position:sticky;top:0;z-inde
 
 /* Листание галерей работ */
 .gallery-controls{display:flex;align-items:center;gap:18px;margin-top:20px}.gallery-controls button{border:1px solid var(--line);background:transparent;color:var(--text);font-size:22px;width:48px;height:44px;border-radius:3px}.gallery-controls button:hover{background:var(--panel);border-color:var(--accent)}.gallery-count{font-size:14px;color:var(--accent);min-width:50px;text-align:center}
+
+/* Показываем фотографии работ целиком, без обрезки людей. */
+[data-work-gallery] .work-image{display:flex;align-items:center;justify-content:center;background:#20251f;aspect-ratio:auto;overflow:visible}
+[data-work-gallery] .work-image img{width:100%;height:auto;max-height:75vh;object-fit:contain;object-position:center;aspect-ratio:auto}
+@media(max-width:650px){[data-work-gallery] .work-image img{max-height:70svh;object-fit:contain;object-position:center;aspect-ratio:auto}}
