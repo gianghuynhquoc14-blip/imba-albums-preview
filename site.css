@@ -17,3 +17,7 @@ section[id]{scroll-margin-top:120px}.company-header{position:sticky;top:0;z-inde
 @media(max-width:650px){[data-work-gallery] .work-image img{max-height:70svh;object-fit:contain;object-position:center;aspect-ratio:auto}}
 
 .guide-feature .hero-actions{display:flex;flex-wrap:wrap;align-items:stretch}.guide-feature .hero-actions>a{display:flex;align-items:center;justify-content:center;box-sizing:border-box;min-height:52px;flex:1 1 185px;padding:14px 18px;text-align:center;font-size:15px;line-height:1.35}
+
+/* Одинаковая геометрия действий в карточках альбомов */
+.guide-feature .hero-actions>a{margin:0;height:60px;min-height:60px;border:1px solid var(--line);align-self:stretch}.guide-feature .hero-actions>.primary-link{margin-top:0;border-color:var(--paper)}
+
