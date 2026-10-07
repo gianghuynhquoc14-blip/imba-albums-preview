@@ -205,6 +205,24 @@ memorySection.placeholder='Ваши истории и фото';
 memorySection.caption='Возможность для вашего альбома. Чужие личные истории здесь не показываем. Можно добавить телефонные снимки, мемы и кадры фотобудки.';
 memorySection.pins.push({key:'photobooth',label:'Фотобудка',x:50,y:35});
 
+// Понятные разделы и реальные примеры фотобудки.
+for(const [id,name,lead] of [
+['personal-one','Личный разворот 1','Начало альбома — ваша личная история. Покажите характер, увлечения и свои идеи.'],
+['personal-two','Личный разворот 2','Вторая личная страница: продолжение вашей идеи или другой образ. Здесь показан пример другого человека.'],
+['teachers','Учителя','Портреты учителей и послание классного руководителя. Заранее согласуйте, кого снимаем, и проверьте подписи.'],
+['serious','Общая серьёзная','Весь класс в одном кадре. Договоритесь об одежде, месте и участии классного руководителя.'],
+['portraits','Портреты всех с цитатами','Портрет каждого ученика, имя и цитата. Свет, фон и оформление выбираем для всего класса.'],
+['groups','Компании','Класс делится на компании без повторяющихся участников. Заранее подготовьте составы, места и очередь, чтобы каждому уделить время.'],
+['creativeGroups','Творческие компании','Компания друзей и общая задумка. Обсудите её с фотографом: он подскажет, что можно реализовать и какие нужны подготовка и реквизит.'],
+['fun','Общая весёлая','Весь класс, ваши шутки и реквизит. Заранее придумайте детали и взаимодействие в общем кадре.'],
+['memories','Фотобудка и ваши мемы','Фотобудка — режим, в котором ребята сами себя фотографируют: фотограф настраивает камеру и свет, а вы снимаете с пульта. Можно также прислать свои мемные фотографии — из них соберём этот разворот.']
+]){const section=sections.find(x=>x.id===id);section.name=name;section.title=name;section.lead=lead;}
+notes.photobooth.lead=sections.find(x=>x.id==='memories').lead;
+notes.photobooth.action='Заранее выберите фотобудку или подборку своих снимков. Обсудите с фотографом место, реквизит и наполнение разворота.';
+notes.memories.lead=notes.photobooth.lead;
+notes.memories.action='Соберите любимые школьные снимки и мемы и передайте их для макета. Фотограф подскажет, какие изображения подходят для печати.';
+memorySection.examples=[{"label": "Сами с пульта", "images": ["photobooth/DSC09173.jpg", "photobooth/DSC09216.jpg", "photobooth/DSC09258.jpg", "photobooth/DSC09199.jpg", "photobooth/DSC09164.jpg", "photobooth/DSC02723.jpg", "photobooth/DSC09190.jpg"], "alt": "Примеры фотобудки: ребята снимают себя сами"}, {"label": "Школьные приколы", "images": ["photobooth/DSC02714.jpg", "photobooth/DSC02810.jpg", "photobooth/DSC01559.jpg", "photobooth/DSC01525.jpg", "photobooth/DSC03387.jpg", "photobooth/DSC01471.jpg", "photobooth/DSC02786.jpg"], "alt": "Примеры фотобудки: ребята снимают себя сами"}, {"label": "Свой реквизит", "images": ["photobooth/DSC03452.jpg", "photobooth/DSC02694.jpg", "photobooth/DSC03392.jpg", "photobooth/DSC03418.jpg", "photobooth/DSC01515.jpg", "photobooth/DSC01577.jpg", "photobooth/DSC02733.jpg", "photobooth/DSC03447.jpg"], "alt": "Примеры фотобудки: ребята снимают себя сами"}];
+memorySection.caption='Здесь отдельные кадры фотобудки из прошлых съёмок, а не готовый макет разворота. Свои мемные снимки тоже можно использовать для этого раздела.';
 const coverExamples=[
   {key:'eye',file:'00-008.jpg',label:'Глаз ученика',alt:'Полная развёртка чёрной обложки с настоящим глазом ученика',description:'На обложке — настоящий глаз ученика. Дальше — то, каким он запомнит школу.',focalX:.74},
   {key:'school',file:'00-000.jpg',label:'Школа как иллюстрация',alt:'Полная развёртка рисованной обложки со школой',description:'Знакомая школа превращается в иллюстрацию. Внутри — люди и истории, которые её оживляют.',focalX:.74},
@@ -255,7 +273,7 @@ function renderSpread(focus = false) {
   if(section.examples) {
     const example = section.examples[currentExample];
     if(example.images.length === 1) media.append(photoLink(example.images[0],example.alt));
-    else { const pair = el('div','portrait-pair'); example.images.forEach((image,index)=>pair.append(photoLink(image,example.alt+' · пример '+(index+1)))); media.append(pair); }
+    else { const pair = el('div',section.id==='memories'?'photobooth-grid':'portrait-pair'); example.images.forEach((image,index)=>pair.append(photoLink(image,example.alt+' · пример '+(index+1)))); media.append(pair); }
   } else {
     const placeholder = el('div','placeholder-spread');
     const left = el('div'); left.append(el('span','placeholder-numeral',String(currentSection+1).padStart(2,'0')),el('h3','',section.name),el('small','','Место в вашем альбоме'));
@@ -417,3 +435,5 @@ document.addEventListener('keydown',event=>{
 renderSpread();
 start.disabled=false;$('coverInspect').disabled=false;
 document.querySelectorAll('button[data-cover]').forEach(button=>{button.disabled=false;});
+
+if(location.hash==='#photobooth'){currentSection=sections.findIndex(s=>s.id==='memories');currentExample=0;openBook();}

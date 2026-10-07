@@ -335,6 +335,10 @@ function renderSpread(focus = false) {
   $('sectionNumber').textContent = section.kicker;
   $('mapTitle').textContent = section.title;
   $('spreadLead').textContent = section.lead;
+  let boothAlternative=$('photoboothAlternative');
+  if(!boothAlternative){boothAlternative=el('aside','examples-explainer');boothAlternative.id='photoboothAlternative';boothAlternative.append(el('p','','В Изи вместо компаний можно выбрать фотобудку — ребята снимают себя сами на настроенную фотографом камеру. Заранее договоритесь о замене с фотографом.'),Object.assign(el('a','dialog-link','Посмотреть фотобудку ↗'),{href:'/guides/vibe/#photobooth'}));$('spreadLead').parentElement.after(boothAlternative);}
+  boothAlternative.hidden=section.id!=='groups';
+
   $('findIdeaPrompt').hidden=!section.id.startsWith('personal');
   $('portraitArchive').hidden=section.id!=='portraits';
   $('generalArchive').hidden=!['serious','fun'].includes(section.id);
