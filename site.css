@@ -15,3 +15,5 @@ section[id]{scroll-margin-top:120px}.company-header{position:sticky;top:0;z-inde
 [data-work-gallery] .work-image{display:flex;align-items:center;justify-content:center;background:#20251f;aspect-ratio:auto;overflow:visible}
 [data-work-gallery] .work-image img{width:100%;height:auto;max-height:75vh;object-fit:contain;object-position:center;aspect-ratio:auto}
 @media(max-width:650px){[data-work-gallery] .work-image img{max-height:70svh;object-fit:contain;object-position:center;aspect-ratio:auto}}
+
+.guide-feature .hero-actions{display:flex;flex-wrap:wrap;align-items:stretch}.guide-feature .hero-actions>a{display:flex;align-items:center;justify-content:center;box-sizing:border-box;min-height:52px;flex:1 1 185px;padding:14px 18px;text-align:center;font-size:15px;line-height:1.35}
