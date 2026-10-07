@@ -4,6 +4,7 @@
   const statuses={idea:'Идея',prepare:'Нужно подготовить',shoot:'Нужно снять',done:'Готово'};
   const rect=(x,y,w,h)=>({x,y,w,h});
   const layouts=[
+    {id:'portrait-four',label:'4 вертикальных портрета · по 2 на странице',rects:[rect(4,10,19,80),rect(27,10,19,80),rect(54,10,19,80),rect(77,10,19,80)]},
     {id:'outdoor-mix',label:'Общий кадр крупно + компании',rects:[rect(4,6,92,58),rect(4,70,28,24),rect(36,70,28,24),rect(68,70,28,24)]},
     {id:'full',label:'1 · весь разворот',rects:[rect(4,6,92,88)]},
     {id:'two',label:'2 · по одной',rects:[rect(4,6,42,88),rect(54,6,42,88)]},
