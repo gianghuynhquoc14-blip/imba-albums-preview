@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#171918"><title>Планы класса — Вайб</title><link rel="stylesheet" href="builder.css?v=57fbe96f68"><link rel="stylesheet" href="class-plans.css?v=292821adc7"><script src="plan-format.js?v=f19ccf7938" defer></script><script src="collection-core.js?v=2c7582da92" defer></script><script src="class-plans.js?v=f28d0cad56" defer></script></head>
+<body>
+<header class="builder-header"><a class="brand" href="index.html">ВАЙБ</a><a class="examples-button" href="builder.html">Конструктор альбома</a></header>
+<nav class="guide-breadcrumbs" aria-label="Путь по сайту"><a href="/imba-albums-preview/">ИМБА</a><span aria-hidden="true">/</span><a href="/imba-albums-preview/guides/">Путеводители</a><span aria-hidden="true">/</span><a href="./">Вайб</a></nav>
+  <main>
+ <div class="builder-title"><div><span class="eyebrow">Для фотографа и ответственного от класса</span><h1>Планы класса</h1><p>Общая часть — одна. Личные развороты — отдельно у каждого.</p></div><button class="quiet" id="newCollection">Другой класс</button></div>
+ <ol class="how-to"><li><b>1. Собери файлы</b><span>Ученики присылают проекты своих двух разворотов.</span></li><li><b>2. Загрузи сюда</b><span>Выбери сразу все личные файлы и общий план.</span></li><li><b>3. Подготовь съёмку</b><span>Открой развороты или скачай сводную таблицу.</span></li></ol>
+ <section class="collection-setup"><label>Класс / школа<input id="collectionSchool" maxlength="150" placeholder="Так же, как в проектах учеников"></label><details class="quick-help"><summary>Кто ещё не передал план?</summary><p>Вставь список класса: фамилия и имя каждого ученика с новой строки. Сайт сравнит список с загруженными планами.</p><label>Список учеников<textarea id="collectionRoster" rows="6" maxlength="20000" placeholder="Иванов Иван&#10;Петрова Анна"></textarea></label></details></section>
+ <div class="collection-actions"><label class="upload-button">Добавить файлы учеников и общий план<input id="batchFiles" type="file" accept=".vibe,.json,application/json" multiple></label><button class="quiet" id="saveCollection">Скачать весь сборник</button><button class="quiet" id="loadCollection">Открыть сборник</button><button class="accent" id="exportCsv">Скачать таблицу подготовки</button></div>
+ <input id="collectionFile" type="file" accept=".vibeclass,.json,application/json" hidden>
+ <p class="local-note">Этот экран не получает планы автоматически. Загрузи присланные файлы; данные сохраняются только в этом браузере. Скачай сборник, чтобы иметь копию всех изображений и комментариев.</p>
+ <p id="collectionStatus" role="status" aria-live="polite"></p><div id="collectionDownload"></div><div id="importReport"></div>
+ <section class="collection-counts" aria-label="Состояние сбора"><div><b id="receivedCount">0</b><span>личных планов получено</span></div><div><b id="missingCount">—</b><span>пока не передали</span></div><div><b id="clarifyCount">0</b><span>планов требуют уточнения</span></div></section>
+ <section id="missingPanel" class="missing-panel" hidden><h2>Ждём планы</h2><p id="missingNames"></p></section>
+ <section class="common-plan"><div><h2>Общие развороты класса</h2><p id="commonStatus">Общий план пока не загружен. Добавь файл из режима «Общий план класса».</p></div><button class="quiet" id="viewCommon" disabled>Открыть общий план</button></section>
+ <div class="section-line"><h2>Личные планы учеников</h2><label>Найти ученика<input id="studentSearch" type="search" placeholder="Фамилия или имя"></label></div>
+ <p id="emptyCollection" class="empty-collection">Здесь появятся ученики после загрузки файлов. Каждый план хранится отдельно: новый ученик не заменяет предыдущего.</p>
+ <div class="table-wrap"><table id="studentTable" hidden><caption class="sr-only">Планы учеников и подготовка к съёмке</caption><thead><tr><th>Ученик</th><th>План</th><th>Нужно снять</th><th>Места</th><th>Подготовка</th><th>Просмотр</th></tr></thead><tbody id="studentRows"></tbody></table></div>
+ <p id="noSearchResults" hidden>По этому имени планов не найдено.</p>
+</main>
+<dialog id="studentDialog" aria-labelledby="studentTitle"><div class="preview-toolbar"><h2 id="studentTitle"></h2><button class="quiet" id="closeStudent">Закрыть просмотр</button></div><div id="studentPages"></div></dialog>
+<dialog id="collectionConfirm" aria-labelledby="collectionConfirmTitle"><h2 id="collectionConfirmTitle">Заменить предыдущие версии?</h2><p id="collectionConfirmText"></p><div class="confirm-actions"><button class="quiet" id="collectionCancel">Отмена</button><button class="accent" id="collectionProceed">Продолжить</button></div></dialog>
+<footer><a href="/imba-albums-preview/">ИМБА · МАГАДАН</a> <a href="index.html">Смотреть примеры</a></footer>
+</body></html>

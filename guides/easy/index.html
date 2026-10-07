@@ -1,0 +1,236 @@
+<!doctype html>
+
+<html lang="ru">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+
+  <meta name="theme-color" content="#171918">
+
+  <meta name="description" content="Изи: загляни в настоящий выпускной альбом и узнай, как мы его снимаем.">
+
+  <title>Изи — твой взгляд, твоя история</title>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%23171918'/%3E%3Cpath d='M9 9h10v23H9zm12 0h10v23H21z' fill='%23eee9df'/%3E%3C/svg%3E">
+
+  <link rel="stylesheet" href="styles.css?v=ca184cf901">
+
+  <link rel="stylesheet" href="ideas.css?v=df2a00691e">
+
+</head>
+
+<body>
+
+  <header class="site-header">
+
+    <a class="wordmark" href="./" aria-label="Изи, к обложке">ИЗИ<span>ВЫПУСКНОЙ АЛЬБОМ</span></a>
+
+    <a class="constructor-link" href="/imba-albums-preview/guides/school/#school-easy">Условия Изи</a>
+
+  </header>
+
+  <nav class="guide-breadcrumbs" aria-label="Путь по сайту"><a href="/imba-albums-preview/">ИМБА</a><span aria-hidden="true">/</span><a href="/imba-albums-preview/guides/">Путеводители</a><span aria-hidden="true">/</span><span>Изи</span></nav><main id="experience">
+
+    <section class="cover-scene" id="coverScene" aria-labelledby="coverTitle">
+
+      <div class="cover-intro">
+
+        <span class="eyebrow">Изи · одна школьная съёмка · до 5 часов</span>
+
+        <h1 id="coverTitle">Твоя история.<br><em>Внутри.</em></h1>
+
+        <p id="coverDescription">Изи — школьные истории, друзья и свой личный разворот.</p>
+
+        <p class="cover-options-note">В Изи обложка — доска учеников. Рисунки, подписи и мемы создайте вместе. Показанные другие обложки — примеры архива; изменение обложки уточняем отдельно.</p>
+
+      </div>
+
+      <div class="cover-stage">
+
+        <div class="album-shell" id="albumShell" data-cover="board">
+
+          <div class="album-pages" aria-hidden="true"></div>
+
+          <div class="album-back" aria-hidden="true"></div>
+
+          <div class="album-cover">
+
+            <img id="coverImage" src="/imba-albums-preview/assets/archive/easy-14-9b/00-000.jpg" alt="Обложка Изи с доской и иллюстрациями класса" fetchpriority="high" width="2048" height="1299">
+
+            <span class="cover-spine" aria-hidden="true"></span>
+
+            <button id="startButton" class="start-button" type="button" disabled aria-label="Старт: раскрыть альбом"><span class="start-arrow" aria-hidden="true">↗</span><span class="start-label">ЗАГЛЯНУТЬ ВНУТРЬ</span></button>
+
+          </div>
+
+        </div>
+
+        <button id="coverInspect" class="book-caption cover-inspect" type="button" disabled aria-haspopup="dialog">Реальная обложка · рассмотреть целиком ↗</button>
+
+      </div>
+
+      <div class="cover-footer">
+
+        <div class="cover-choices" role="group" aria-label="Обложка примера"><span>Реальный альбом · школа 14, 9Б</span><button type="button" data-cover="board" disabled aria-pressed="true">Обложка Изи</button></div>
+
+        <p>Посмотри примеры. Подготовь класс.<br>Запиши идеи до съёмки.</p>
+
+      </div>
+
+    </section>
+
+
+
+    <section class="book-scene" id="bookScene" hidden aria-labelledby="mapTitle">
+
+      <div class="album-topbar">
+
+        <button class="text-button" id="closeBook" type="button">← К обложке</button>
+
+        <span class="eyebrow">Листаем будущий альбом</span>
+
+        <button class="text-button" id="contentsButton" type="button" aria-haspopup="dialog">Содержание <span aria-hidden="true">☰</span></button>
+
+      </div>
+
+      <div class="spread-heading">
+
+        <div><span class="section-number" id="sectionNumber"></span><h2 id="mapTitle" tabindex="-1"></h2></div>
+
+        <p id="spreadLead"></p>
+
+      </div>
+
+      <p class="view-help">Нажми на фото, чтобы рассмотреть. «За кадром» объяснит, как подготовиться к этому разделу.</p><div class="depth-stage">
+
+        <div class="book-spread" id="spreadFrame">
+
+          <div id="spreadMedia" class="spread-media"></div>
+
+          <div class="paper-gutter" aria-hidden="true"></div>
+
+          <div class="annotation-layer" id="annotationLayer" hidden></div>
+
+          <div class="page-sheen" id="pageSheen" aria-hidden="true"></div>
+
+        </div>
+
+      </div>
+
+      <div class="spread-controls">
+
+        <div id="exampleControls" class="example-controls" role="group" aria-label="Примеры оформления"></div>
+
+        <button class="notes-button" id="notesToggle" type="button" aria-expanded="false" aria-controls="annotationLayer"><span aria-hidden="true">＋</span> За кадром</button>
+
+      </div>
+
+      <div id="portraitArchive" class="portrait-archive" hidden><div><h3>Больше примеров классики</h3><p>Пополняем подборку портретами из прошлых съёмок: посмотри, как уже снимали с разным светом, фоном и образами.</p></div><a href="https://disk.yandex.ru/d/3IZ604NPdSEICA" target="_blank" rel="noopener noreferrer">Открыть подборку портретов</a></div>
+
+      <div id="generalArchive" class="portrait-archive" hidden><div><h3>Больше примеров общих фотографий</h3><p>Посмотри, как уже снимали классы: разные места, расположение ребят и настроение. Выберите свою задумку и сразу запишите место съёмки в плане.</p></div><a href="https://disk.yandex.ru/d/2pDKJFWkkuOKEA" target="_blank" rel="noopener noreferrer">Открыть подборку общих</a></div>
+
+      <div id="findIdeaPrompt" class="idea-prompt"><p>Что хочется сохранить о себе? Начни с увлечения, школьной истории или любимого прикола.</p><button id="findIdea" type="button" data-open-ideas aria-haspopup="dialog">Найти идею для своего кадра</button></div>
+
+      <div id="notesIndex" class="notes-index" hidden role="group" aria-label="Пометки к развороту"></div>
+
+      <details id="captionDetails" class="caption-details"><summary>Об этом примере</summary><p class="spread-caption" id="spreadCaption"></p></details>
+
+      <div class="page-navigation">
+
+        <button class="round-button" id="previousSpread" type="button" aria-label="Предыдущий раздел">←</button>
+
+        <div class="chapter-position"><span id="pageCounter" aria-live="polite"></span><span id="currentChapterName"></span></div>
+
+        <button class="round-button" id="nextSpread" type="button" aria-label="Следующий раздел">→</button>
+
+      </div>
+
+      <nav id="chapterProgress" class="chapter-progress" aria-label="Быстрый переход по альбому"></nav>
+
+      <div class="plan-banner"><div><h2>А теперь — ваш альбом.</h2><p>Выберите общие кадры, места и идеи до съёмки. В альбоме 14 разворотов, включая два личных; их сборка на сайте пока недоступна.</p></div><a class="primary-button" href="/imba-albums-preview/guides/school/#school-easy">Собрать план класса</a></div><aside class="context-help" aria-label="Коротко о съёмке"><span class="help-label">Коротко о съёмке</span><details><summary>Что подготовить?</summary><p>Опрятную одежду, причёску и реквизит для выбранной идеи. Назначьте человека, который перед кадром поможет проверить внешний вид.</p></details><details><summary>Кто собирает участников?</summary><p>Ответственный от класса или группы помогает организовать очередь и ожидание. В садике и началке помогают взрослые; фотограф готовит свет и снимает.</p></details><details><summary>Почему у детей разное число кадров?</summary><p>Количество удачных кадров зависит от участия, настроения и нужных дублей. Фотограф помогает освоиться, но не заставляет фотографироваться. Одинаковое число кадров каждому не обещаем.</p></details><details><summary>Обязательно улыбаться?</summary><p>Нет. Серьёзный портрет тоже может быть удачным. Мы помогаем получить живые эмоции и предлагаем понятные варианты позирования.</p></details></aside><div class="prepare-banner">
+
+        <div><span class="eyebrow">Теперь — как это снимаем</span><p>Начинаем с классики.<br><span>Знакомимся и входим в ритм.</span></p></div>
+
+        <button class="primary-button" id="prepareButton" type="button" aria-haspopup="dialog">Подготовиться к классике <span aria-hidden="true">↗</span></button>
+
+      </div>
+
+    </section>
+
+
+
+    <dialog id="stageDialog" class="stage-dialog" aria-labelledby="dialogTitle">
+
+      <article class="dialog-paper">
+
+        <button id="dialogClose" class="dialog-close" type="button" aria-label="Закрыть пояснение">×</button>
+
+        <span class="eyebrow" id="dialogStep"></span>
+
+        <h2 id="dialogTitle" tabindex="-1" autofocus></h2>
+
+        <p class="dialog-lead" id="dialogLead"></p>
+
+        <div id="dialogBody"></div>
+
+      </article>
+
+    </dialog>
+
+    <dialog id="contentsDialog" class="contents-dialog" aria-labelledby="contentsTitle">
+
+      <div class="contents-paper">
+
+        <button id="contentsClose" class="dialog-close" type="button" aria-label="Закрыть содержание">×</button>
+
+        <span class="eyebrow">Внутри альбома</span><h2 id="contentsTitle" tabindex="-1" autofocus>Ваша история<br><em>по главам.</em></h2>
+
+        <p>Здесь показаны разделы и примеры, а не десять фиксированных разворотов. Точный состав и порядок согласуем до съёмки.</p>
+
+        <nav id="contentsList" aria-label="Разделы альбома"></nav>
+
+      </div>
+
+    </dialog>
+
+    <dialog id="photoDialog" class="photo-dialog" aria-labelledby="photoTitle">
+
+      <div class="photo-toolbar">
+
+        <div><span class="eyebrow" id="photoChapter"></span><h2 id="photoTitle" tabindex="-1" autofocus></h2></div>
+
+        <button id="photoClose" class="photo-close" type="button" aria-label="Закрыть фотографию">×</button>
+
+      </div>
+
+      <div id="photoViewport" class="photo-viewport"><img id="photoImage" alt=""></div>
+
+      <div class="photo-bottom">
+
+        <div class="photo-navigation"><button id="photoPrevious" class="round-button" type="button" aria-label="Предыдущая фотография">←</button><span id="photoCounter" aria-live="polite"></span><button id="photoNext" class="round-button" type="button" aria-label="Следующая фотография">→</button></div>
+
+        <button id="photoZoom" class="photo-tool" type="button" aria-pressed="false">Приблизить ＋</button>
+
+        <a id="photoOriginal" class="photo-tool" target="_blank" rel="noopener">Оригинал ↗</a>
+
+      </div>
+
+    </dialog>
+
+  </main>
+
+  <noscript><p class="noscript-note">Для перелистывания и пояснений включи JavaScript в браузере.</p></noscript>
+
+  <footer class="site-footer"><a href="/imba-albums-preview/">ИМБА · МАГАДАН</a><a href="/imba-albums-preview/guides/">Все путеводители</a><span>Фотографии из разных проектов. Ваш альбом будет своим.</span></footer>
+
+  <script src="app.js?v=501e3f72bb"></script>
+
+  <script src="ideas.js?v=36968c9362"></script>
+
+</body>
+
+</html>
+

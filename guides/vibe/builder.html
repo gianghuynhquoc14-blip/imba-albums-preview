@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#171918"><title>Собрать общий план класса — Вайб</title>
+  <link rel="stylesheet" href="builder.css?v=57fbe96f68"><script src="plan-format.js?v=f19ccf7938" defer></script><script src="ideas.js?v=36968c9362" defer></script><script src="builder.js?v=97b2cb6b0a" defer></script>
+  <link rel="stylesheet" href="ideas.css?v=df2a00691e">
+</head>
+<body>
+  <header class="builder-header"><a href="index.html" class="brand">ВАЙБ</a><a href="index.html" class="examples-button">Смотреть примеры</a></header>
+  <nav class="guide-breadcrumbs" aria-label="Путь по сайту"><a href="/imba-albums-preview/">ИМБА</a><span aria-hidden="true">/</span><a href="/imba-albums-preview/guides/">Путеводители</a><span aria-hidden="true">/</span><a href="./">Вайб</a></nav>
+  <main>
+    <div class="builder-title"><div><h1>Собрать общий план класса</h1><p>Выбери окошки. Добавь фото или идеи. Запиши, что хочешь снять.</p></div><button id="newProject" class="quiet">Новый план</button></div>
+    <ol class="how-to"><li><b>1. Посмотри примеры</b><span>Вдохновись и придумай своё.</span></li><li><b>2. Собери план</b><span>Выбери окошки, добавь фото и пояснения.</span></li><li><b>3. Передай команде</b><span>Скачай проект и отправь ответственному.</span></li></ol>
+    <details class="quick-help"><summary>Как пользоваться планом?</summary><ol><li>Выберите общий раздел и расположение кадров.</li><li>Добавьте пример или опишите задумку словами.</li><li>Скачайте проект и отправьте фотографу.</li></ol><p>Это план съёмки. Два личных разворота остаются в составе альбома, но их сборка на сайте пока недоступна.</p><p>Проект можно открыть и продолжить. PDF нужен для просмотра.</p></details>
+    <aside class="context-help" aria-label="Сначала договоритесь"><span class="help-label">Сначала договоритесь</span><details><summary>Зачем один ответственный?</summary><p>Он собирает идеи и решения класса и передаёт общий согласованный результат фотографу. Так пожелания не теряются в разных сообщениях.</p></details><details><summary>Как выбрать место и стиль?</summary><p>Выберите место заранее и проверьте доступ к нему. Для классических портретов нужен единый стиль класса. Сложный референс покажите фотографу хотя бы за неделю.</p></details></aside><section class="setup" aria-label="Настройки плана">
+      <label hidden>Что собираем<select id="projectMode"><option value="class">Общий план класса · 14 разворотов</option></select></label>
+      <label>Класс / школа<input id="projectClass" placeholder="Например, 11Б · школа 30" maxlength="100"></label>
+      <label id="ownerField">Кто собирает общий план<input id="projectOwner" placeholder="Имя представителя класса" maxlength="100"></label>
+    </section>
+    <div id="studentIdentity" class="student-identity" hidden><label>Фамилия<input id="studentSurname" autocomplete="family-name" placeholder="Иванов" maxlength="100"></label><label>Имя<input id="studentName" autocomplete="given-name" placeholder="Иван" maxlength="100"></label><p>Укажи класс так, как договорились в группе. Фамилия и имя помогут фотографу найти именно твой план.</p></div>
+    <div class="save-toolbar"><div class="file-actions"><button id="saveProject" class="accent">Скачать проект для отправки</button><button id="loadProject" class="quiet">Открыть сохранённый проект</button><button id="downloadPdf" class="quiet">Скачать PDF для просмотра</button></div><p id="saveStatus" role="status" aria-live="polite">План хранится на этом устройстве. Скачай проект, чтобы сохранить копию.</p></div>
+    <details hidden id="personalExampleTools" class="quick-help advanced"><summary>Как показать личные страницы в общем примере?</summary><p>Это только подстановка двух страниц одного ученика для просмотра. Планы всех учеников собираются отдельно в разделе «Планы класса».</p><button id="importPersonal" class="quiet">Подставить личные страницы в пример</button></details>
+    <div id="legacyPlanNotice" class="quick-help" hidden></div><div id="saveToolbarLinks" aria-live="polite"></div>
+    <input type="file" id="projectFile" accept=".vibe,.json,application/json" hidden>
+    <input type="file" id="personalFile" accept=".vibe,.json,application/json" hidden>
+    <p class="local-note">Фотографии остаются в этом браузере. PDF и файл проекта передай команде самостоятельно. Это план; окончательный макет появится после съёмки, выбора и ретуши кадров.</p>
+    <details id="styleDetails" class="style-card"><summary>Единый стиль классических портретов</summary><p>Выбираем один стиль для всего класса: свет, фон, одежду и оформление. Личные развороты каждый наполняет свободно.</p><label>Как снимаем портреты<textarea id="portraitStyle" rows="3" placeholder="Общее направление, фон, свет, одежда; что хотим изменить в примере…" maxlength="4000"></textarea></label><label class="style-ref">Референс общего стиля<input type="file" id="styleUpload" accept="image/jpeg,image/png,image/webp"></label><div id="stylePreview"></div></details>
+    <details class="quick-help"><summary>Что ещё нужно указать?</summary><div id="validation" class="validation" role="status"></div></details>
+    <section class="album-overview" aria-label="Все развороты"><div class="section-line"><h2>План альбома</h2><span id="spreadCount"></span></div><nav id="spreadList" aria-label="Выбрать разворот"></nav></section>
+    <section class="editor" aria-labelledby="editorTitle">
+      <div class="editor-header"><div><span id="editorNumber" class="eyebrow"></span><h2 id="editorTitle">Личный разворот</h2></div><div class="move-actions"><button id="moveEarlier" class="quiet">Раньше</button><button id="moveLater" class="quiet">Позже</button></div></div>
+      <div class="spread-settings"><label>Раздел<select id="spreadKind"></select></label><label>Название / задумка<input id="spreadTitle" maxlength="150" placeholder="Как назовём эту историю?"></label><label>Место съёмки<input id="spreadLocation" maxlength="200" placeholder="Кабинет, коридор, спортзал…"></label></div>
+      <p id="sectionHint" class="hint"></p>
+      <div id="builderIdeaPrompt" class="idea-prompt"><p>Нет идеи? Посмотри архив, выбери своё направление и добавь референс с комментарием.</p><button type="button" data-open-ideas aria-haspopup="dialog">Найти идею для своего кадра</button></div>
+      <div class="section-line"><h3>Расположение фотографий</h3><span>От 1 до 8 окошек</span></div>
+      <div id="layoutList" class="layout-list" role="group" aria-label="Выбрать расположение"></div>
+      <p class="hint">Нажми на окошко — ниже откроются загрузка и пояснения к нему. Сначала выбери окошко, затем добавь картинку. На компьютере файл можно перетащить прямо в окошко.</p>
+      <div id="spreadCanvas" class="spread-canvas" aria-label="Редактируемый разворот"></div>
+      <div id="parkedImages" class="parked-images"></div>
+      <section id="slotEditor" class="slot-editor" aria-label="Фотография и комментарий">
+        <h3 id="slotTitle">Окошко 1</h3>
+        <div class="slot-actions"><label class="upload-button">Добавить фото или картинку с идеей<input type="file" id="slotUpload" accept="image/jpeg,image/png,image/webp"></label><button id="removeImage" class="quiet">Убрать изображение</button></div>
+        <p id="slotFilename" class="hint"></p>
+        <div class="slot-fields"><label>Что хотим / что изменить<textarea id="slotComment" rows="4" maxlength="4000" placeholder="Хотим как на примере, но другой фон. Здесь нужен наш реквизит…"></textarea></label><label>Реквизит, одежда и подготовка<textarea id="slotProps" rows="4" maxlength="4000" placeholder="Что принести, кто готовит, в чём нужна помощь фотографа…"></textarea></label></div>
+        <details class="quick-help"><summary>Дополнительно: статус, дата и порядок кадров</summary><div class="slot-meta"><label>Как используем изображение<select id="slotUse"><option value="reference">Референс · нужно снять</option><option value="photo">Готовая фотография</option></select></label><label>Статус<select id="slotStatus"><option value="idea">Идея</option><option value="prepare">Нужно подготовить</option><option value="shoot">Нужно снять</option><option value="done">Готово</option></select></label><label>Планируемая дата<input id="slotDate" type="date"></label><label>Переставить в окошко<select id="slotMove"></select></label></div></details>
+      </section>
+      <label class="spread-comment">Комментарий ко всему развороту<textarea id="spreadComment" rows="3" maxlength="4000" placeholder="Общая задумка, участники, договорённости…"></textarea></label>
+      <aside class="context-help" aria-label="Когда фотографии уже выбраны"><span class="help-label">Когда фотографии уже выбраны</span><details><summary>Что входит в обработку?</summary><p>Базовая обработка сохраняет естественную внешность и убирает временные недостатки. Пожелания по постоянным особенностям напишите заранее. Смена одежды, причёски, фона или фигуры автоматически не подразумевается; состав обработки уточняем по услуге.</p></details><details><summary>Что проверить перед печатью?</summary><p>Фотографии, имена, фамилии, цитаты и подписи. Передайте замечания одним списком через ответственного. После исправлений подтвердите готовый макет.</p></details></aside><div class="editor-navigation"><button id="previousSpread" class="quiet">Предыдущий разворот</button><button id="previewAlbum" class="accent">Проверить весь план</button><button id="nextSpread" class="quiet">Следующий разворот</button></div>
+      <p class="hint">Закончил? Проверь весь план, затем нажми «Скачать проект для отправки» вверху. Файл нужно отправить самостоятельно — сайт пока ничего не пересылает.</p>
+    </section>
+  </main>
+  <dialog id="previewDialog" aria-labelledby="previewTitle"><div class="preview-toolbar"><h2 id="previewTitle">Ваш будущий альбом</h2><button id="closePreview" class="quiet" aria-label="Закрыть просмотр">Закрыть</button></div><p>Здесь видно, какие фотографии уже есть и какие ещё предстоит снять. Пустые места — будущие кадры.</p><div id="previewPages"></div></dialog>
+  <dialog id="confirmDialog" aria-labelledby="confirmTitle"><h2 id="confirmTitle">Продолжить?</h2><p id="confirmMessage"></p><div class="confirm-actions"><button id="confirmCancel" class="quiet">Отмена</button><button id="confirmProceed" class="accent">Продолжить</button></div></dialog>
+  <footer><a href="/imba-albums-preview/">ИМБА · МАГАДАН</a> <a href="/imba-albums-preview/guides/">Все путеводители</a></footer>
+</body>
+</html>

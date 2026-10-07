@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="440" viewBox="0 0 700 440" role="img" aria-label="Иллюстрация к истории про перманентный маркер">
+  <rect width="700" height="440" rx="8" fill="#252f29"/>
+  <path d="M44 51Q168 21 273 46M374 385Q503 350 658 377M29 206Q113 182 206 205" fill="none" stroke="#d8dcc7" stroke-width="2" opacity=".12"/>
+  <path d="M431 63l61 90m-43-86-9 96m17-44 71-3M523 113q75-39 91 17t-62 40m-21-17 81-38" fill="none" stroke="#e9e4d2" stroke-width="8" stroke-linecap="round" opacity=".7"/>
+  <path d="M379 119q144-20 261 6M378 140q113-24 254-13M402 161q86-11 215-6" stroke="#657367" stroke-width="16" opacity=".7" fill="none" stroke-linecap="round"/>
+  <g transform="translate(66 196) rotate(-9 274 45)">
+    <path d="M503 30l63 16-63 16z" fill="#ded9c7"/><path d="M554 42l25 4-25 4z" fill="#101915"/>
+    <rect x="46" y="17" width="461" height="59" rx="15" fill="#c7bda6"/><rect x="124" y="17" width="268" height="59" fill="#e6dfcb"/>
+    <rect y="10" width="126" height="74" rx="12" fill="#101914"/><path d="M17 18h7v56m18-56h7v56m18-56h7v56" stroke="#495449" stroke-width="3"/>
+    <text x="260" y="54" text-anchor="middle" fill="#293329" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="3">PERMANENT</text>
+  </g>
+  <g transform="translate(60 315) rotate(3)"><rect width="258" height="58" fill="#e3ca8a"/><text x="129" y="38" text-anchor="middle" fill="#293329" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="1">НЕ ТОТ МАРКЕР</text></g>
+  <path d="M378 320q61-14 74-60m-13 9 13-9 0 18" fill="none" stroke="#e3ca8a" stroke-width="4" stroke-linecap="round"/>
+</svg>
