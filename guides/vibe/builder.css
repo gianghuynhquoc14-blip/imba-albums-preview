@@ -20,3 +20,10 @@
 #spreadExamplesDialog{width:min(1000px,calc(100% - 24px));max-height:90svh;overflow:auto;background:var(--paper);color:var(--ink);padding:22px;border-radius:6px}
 #spreadExamplesDialog button{min-height:44px}#spreadExamplesDialog .preview-toolbar{position:sticky;top:-22px;background:var(--paper);z-index:2}
 @media(max-width:600px){#spreadList{grid-template-columns:repeat(2,minmax(0,1fr))}.spread-thumb{font-size:13px}.portrait-copy-block{padding:4px}.portrait-copy-block b{font-size:10px}.portrait-copy-block p{font-size:9px}.layout-button{max-width:100%}.layout-button span{white-space:normal}.editor-navigation{flex-wrap:wrap}#spreadExamplesDialog{padding:14px}}
+
+#spreadExamplesDialog .quiet{color:var(--ink);border-color:#8a8d80;background:transparent}
+#spreadExamplesDialog .preview-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+#spreadExamplesDialog .preview-toolbar h2{flex:1 1 260px;min-width:0;font-size:clamp(23px,3vw,32px);margin:0;overflow-wrap:anywhere}
+#spreadExamplesDialog .hero-actions{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:16px}
+#spreadExamplesDialog .hero-actions button{font-size:14px;padding:10px;white-space:nowrap}
+#spreadExamplesDialog .preview-toolbar button{max-width:100%;white-space:normal}
