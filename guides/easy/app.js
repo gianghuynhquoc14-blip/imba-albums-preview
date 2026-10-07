@@ -263,8 +263,17 @@ for (const [id, examples] of [
 sections.find(s=>s.id==='personal-one').caption='Личные развороты разных учеников и учениц из двух альбомов Изи: примеры того, что можно придумать для своей страницы. В альбом каждого входит его личный вариант. Примеры первого альбома идут перед примерами школы 1, 9А.';
 // Конец второго примера Изи.
 
+// Инженерный 11А: третий пример Изи.
+sections.find(s=>s.id==='personal-one').examples.push(...[{"label": "Инж · 11А / 01-001", "images": ["easy-engineering-11a/01-001.jpg"], "alt": "Личный вариант ученика или ученицы инженерного 11А"}, {"label": "Инж · 11А / 01-009", "images": ["easy-engineering-11a/01-009.jpg"], "alt": "Личный вариант ученика или ученицы инженерного 11А"}, {"label": "Инж · 11А / 01-011", "images": ["easy-engineering-11a/01-011.jpg"], "alt": "Личный вариант ученика или ученицы инженерного 11А"}, {"label": "Инж · 11А / 01-016", "images": ["easy-engineering-11a/01-016.jpg"], "alt": "Личный вариант ученика или ученицы инженерного 11А"}]);
+sections.find(s=>s.id==='teachers').examples.push(...[{"label": "Инж · 11А / 02-000", "images": ["easy-engineering-11a/02-000.jpg"], "alt": "Учителя инженерного 11А"}]);
+sections.find(s=>s.id==='serious').examples.push(...[{"label": "Инж · 11А / 10-000", "images": ["easy-engineering-11a/10-000.jpg"], "alt": "Общая серьёзная инженерного 11А"}]);
+sections.find(s=>s.id==='portraits').examples.push(...[{"label": "Инж · 11А / 04-000", "images": ["easy-engineering-11a/04-000.jpg"], "alt": "Портреты с цитатами инженерного 11А"}, {"label": "Инж · 11А / 05-000", "images": ["easy-engineering-11a/05-000.jpg"], "alt": "Портреты с цитатами инженерного 11А"}, {"label": "Инж · 11А / 06-000", "images": ["easy-engineering-11a/06-000.jpg"], "alt": "Портреты с цитатами инженерного 11А"}]);
+sections.find(s=>s.id==='groups').examples.push(...[{"label": "Инж · 11А / 07-000", "images": ["easy-engineering-11a/07-000.jpg"], "alt": "Компании инженерного 11А"}, {"label": "Инж · 11А / 08-000", "images": ["easy-engineering-11a/08-000.jpg"], "alt": "Компании инженерного 11А"}, {"label": "Инж · 11А / 09-000", "images": ["easy-engineering-11a/09-000.jpg"], "alt": "Компании инженерного 11А"}]);
+sections.find(s=>s.id==='fun').examples.push(...[{"label": "Инж · 11А / 03-000", "images": ["easy-engineering-11a/03-000.jpg"], "alt": "Общая весёлая инженерного 11А"}]);
+sections.find(s=>s.id==='personal-one').caption='Личные варианты учеников и учениц из трёх альбомов Изи: примеры идей для своей страницы. Каждый вариант относится к отдельному человеку.';
 const coverExamples=[{key:'board',file:'easy-14-9b/00-000.jpg',label:'Обложка Изи · 9Б',alt:'Обложка Изи: школа, рисунки класса и разрисованная доска',description:'Реальная обложка Изи из альбома 9Б: школьная доска, свои подписи и история класса.',focalX:.74}];
 coverExamples.push({key:'board-1-9a',file:'easy-1-9a/00-000.jpg',label:'Обложка Изи · 1, 9А',alt:'Обложка альбома Изи: школьная доска с рисунками класса',description:'Второй пример Изи: школа 1, 9А. Доска с рисунками, фразами и школьными шутками.',focalX:.5});
+coverExamples.push({key:'engineering-11a',file:'easy-engineering-11a/00-000.jpg',label:'Обложка Изи · инженерный 11А',alt:'Зелёная доска с рисунками инженерного 11А',description:'Третий реальный пример Изи: инженерный 11А.',focalX:.5});
 const $ = id => document.getElementById(id);
 const cover = $('coverScene'), shell = $('albumShell'), book = $('bookScene');
 const start = $('startButton'), stageDialog = $('stageDialog'), contentsDialog = $('contentsDialog');
