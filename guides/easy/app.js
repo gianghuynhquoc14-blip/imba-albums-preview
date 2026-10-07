@@ -279,10 +279,10 @@ sections.find(s=>s.id==='portraits').examples.push(...[{"label": "30 · 11Б / 0
 sections.find(s=>s.id==='groups').examples.push(...[{"label": "30 · 11Б / 08-000", "images": ["easy-30-11b/08-000.jpg"], "alt": "Компании 30-й школы, 11Б"}, {"label": "30 · 11Б / 09-000", "images": ["easy-30-11b/09-000.jpg"], "alt": "Компании 30-й школы, 11Б"}, {"label": "30 · 11Б / 10-000", "images": ["easy-30-11b/10-000.jpg"], "alt": "Компании 30-й школы, 11Б"}]);
 sections.find(s=>s.id==='fun').examples.push(...[{"label": "30 · 11Б / 11-000", "images": ["easy-30-11b/11-000.jpg"], "alt": "Общая весёлая 30-й школы, 11Б"}]);
 sections.find(s=>s.id==='personal-one').caption='Личные варианты учеников и учениц из четырёх альбомов Изи: примеры идей для своей страницы. Каждый вариант относится к отдельному человеку.';
-const coverExamples=[{key:'board',file:'easy-14-9b/00-000.jpg',label:'Обложка Изи · 9Б',alt:'Обложка Изи: школа, рисунки класса и разрисованная доска',description:'Реальная обложка Изи из альбома 9Б: школьная доска, свои подписи и история класса.',focalX:.74}];
-coverExamples.push({key:'board-1-9a',file:'easy-1-9a/00-000.jpg',label:'Обложка Изи · 1, 9А',alt:'Обложка альбома Изи: школьная доска с рисунками класса',description:'Второй пример Изи: школа 1, 9А. Доска с рисунками, фразами и школьными шутками.',focalX:.5});
-coverExamples.push({key:'engineering-11a',file:'easy-engineering-11a/00-000.jpg',label:'Обложка Изи · инженерный 11А',alt:'Зелёная доска с рисунками инженерного 11А',description:'Третий реальный пример Изи: инженерный 11А.',focalX:.5});
-coverExamples.push({key:'school-30-11b',file:'easy-30-11b/00-000.jpg',label:'Обложка Изи · 30-я школа, 11Б',alt:'Обложка с доской и геометрическим оформлением 30-й школы, 11Б',description:'Четвёртый реальный пример Изи: 30-я школа, 11Б.',focalX:.5});
+const coverExamples=[{key:'board',file:'easy-14-9b/00-000.jpg',label:'Школьные истории',alt:'Обложка Изи: школа, рисунки класса и разрисованная доска',description:'Реальная обложка Изи из альбома 9Б: школьная доска, свои подписи и история класса.',focalX:.74}];
+coverExamples.push({key:'board-1-9a',file:'easy-1-9a/00-000.jpg',label:'Чёрно-белая классика',alt:'Обложка альбома Изи: школьная доска с рисунками класса',description:'Второй пример Изи: школа 1, 9А. Доска с рисунками, фразами и школьными шутками.',focalX:.5});
+coverExamples.push({key:'engineering-11a',file:'easy-engineering-11a/00-000.jpg',label:'Тёплый свет и характер',alt:'Зелёная доска с рисунками инженерного 11А',description:'Третий реальный пример Изи: инженерный 11А.',focalX:.5});
+coverExamples.push({key:'school-30-11b',file:'easy-30-11b/00-000.jpg',label:'Музыка, друзья и снег',alt:'Обложка с доской и геометрическим оформлением 30-й школы, 11Б',description:'Четвёртый реальный пример Изи: 30-я школа, 11Б.',focalX:.5});
 const $ = id => document.getElementById(id);
 const cover = $('coverScene'), shell = $('albumShell'), book = $('bookScene');
 const start = $('startButton'), stageDialog = $('stageDialog'), contentsDialog = $('contentsDialog');
@@ -315,6 +315,21 @@ function photoLink(filename, alt) {
   a.setAttribute('aria-haspopup','dialog');
   a.append(image); return a;
 }
+// Просмотр одного выбранного альбома.
+const albumStyles={board:{folder:'easy-14-9b/',name:'Школьные истории'},'board-1-9a':{folder:'easy-1-9a/',name:'Чёрно-белая классика'},'engineering-11a':{folder:'easy-engineering-11a/',name:'Тёплый свет и характер'},'school-30-11b':{folder:'easy-30-11b/',name:'Музыка, друзья и снег'}};
+const allAlbumExamples=new Map(sections.map(section=>[section.id,section.examples.map(example=>({...example}))]));
+function selectAlbumExamples(key){
+ const album=albumStyles[key]||albumStyles.board;
+ const names=['Маша','Коля','Лена','Саша'];
+ sections.forEach(section=>{
+  section.examples=allAlbumExamples.get(section.id).filter(example=>example.images[0].startsWith(album.folder)).map((example,index)=>({...example,label:section.id==='personal-one'?names[index]:'Страница '+(index+1),alt:section.name+' — '+album.name}));
+  section.caption=section.id==='personal-one'?'Личные развороты разных ребят из этого альбома. Имена на кнопках условные: они помогают различать примеры. Каждый придумывает свою страницу.':'Пример из альбома «'+album.name+'». Нажми на фотографию, чтобы рассмотреть детали.';
+ });
+ currentExample=0;
+}
+coverExamples.forEach(example=>{example.label=albumStyles[example.key].name;example.description='Альбом «'+example.label+'». Пример оформления обложки.';example.alt='Обложка альбома «'+example.label+'»';});
+selectAlbumExamples(shell.dataset.cover);
+
 function renderSpread(focus = false) {
   const section = sections[currentSection];
   $('sectionNumber').textContent = section.kicker;
@@ -466,9 +481,9 @@ for(const dialog of [stageDialog,contentsDialog,photoDialog]) {
 sections.forEach((section,index)=>{const button=el('button','chapter-stop');button.type='button';button.title=section.name;button.setAttribute('aria-label',String(index+1).padStart(2,'0')+' / '+section.name);button.append(el('span'));button.addEventListener('click',()=>goToSection(index));$('chapterProgress').append(button);});
 sections.forEach((section,index)=>{const button=el('button','contents-entry');button.type='button';button.setAttribute('aria-current',String(index===0));const label=el('span');label.append(el('b','',String(index+1).padStart(2,'0')),document.createTextNode(section.name));button.append(label,el('small','',section.examples?'Смотреть ↗':'Фото в подборе'));button.addEventListener('click',()=>{contentsOpener=null;contentsDialog.close();goToSection(index);});$('contentsList').append(button);});
 document.querySelectorAll('button[data-cover]').forEach(button=>button.addEventListener('click',()=>{
-  if(transitioning)return;const example=coverExamples.find(item=>item.key===button.dataset.cover);if(!example)return;shell.dataset.cover=example.key;
+  if(transitioning)return;const example=coverExamples.find(item=>item.key===button.dataset.cover);if(!example)return;shell.dataset.cover=example.key;selectAlbumExamples(example.key);
   $('coverImage').src=archive+example.file;$('coverImage').alt=example.alt;
-  $('coverDescription').textContent=example.description;
+  $('coverDescription').textContent='Альбом «'+albumStyles[example.key].name+'». Открой его, чтобы посмотреть развороты.';
   document.querySelectorAll('button[data-cover]').forEach(option=>option.setAttribute('aria-pressed',String(option===button)));
 }));
 // Горизонтальные жесты не заменяют обычные кнопки и не блокируют прокрутку.
