@@ -514,3 +514,5 @@ document.addEventListener('keydown',event=>{
 renderSpread();
 start.disabled=false;$('coverInspect').disabled=false;
 document.querySelectorAll('button[data-cover]').forEach(button=>{button.disabled=false;});
+
+if(location.hash&&sections.some(s=>s.id===location.hash.slice(1))){currentSection=sections.findIndex(s=>s.id===location.hash.slice(1));currentExample=0;openBook();}
