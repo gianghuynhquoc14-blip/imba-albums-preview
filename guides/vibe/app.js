@@ -446,3 +446,5 @@ start.disabled=false;$('coverInspect').disabled=false;
 document.querySelectorAll('button[data-cover]').forEach(button=>{button.disabled=false;});
 
 if(location.hash==='#photobooth'){currentSection=sections.findIndex(s=>s.id==='memories');currentExample=0;openBook();}
+
+if(location.hash==='#prepare')openPreparation($('prepareButton'));
