@@ -392,7 +392,7 @@ function setPhotoZoom(zoom) {
 }
 function openPreparation(opener) {
   if(stageDialog.open)return;
-  $('dialogStep').textContent='Первый съёмочный этап';$('dialogTitle').textContent='Начинаем с классики.';
+  $('dialogStep').textContent='Первый съёмочный этап';$('dialogTitle').textContent='Классика: подготовка к школьной съёмке';
   $('dialogLead').textContent='Знакомимся, снимаем портреты и общие фотографии. Это понятный старт перед более сложными задумками.';
   const body=$('dialogBody');body.replaceChildren();
   const progress=el('div','preparation-progress');const count=el('span');const meter=el('progress');meter.max=preparationSteps.length;meter.setAttribute('aria-label','Отмеченные пункты личной памятки');progress.append(count,meter);body.append(progress);
