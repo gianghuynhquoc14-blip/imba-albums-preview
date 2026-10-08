@@ -56,3 +56,5 @@
 #photoboothAlternative .dialog-link{display:inline-flex;align-items:center;padding:12px 18px;min-height:46px;width:auto;background:var(--paper);color:#242820;border:1px solid var(--paper);font-size:15px;text-decoration:none}
 
 .guide-audience-help{max-width:1170px;margin:16px auto;padding:0 4.5vw;color:var(--muted);font-size:14px;line-height:1.6}
+
+.social-links{display:flex;flex-wrap:wrap;gap:12px 20px;margin-top:14px}.social-links a{display:inline-flex;align-items:center;min-height:44px;color:var(--accent);font-size:14px}.social-links a:hover{text-decoration:underline}.company-footer,.site-footer{flex-wrap:wrap}.site-footer .social-links{margin-top:0}

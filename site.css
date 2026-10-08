@@ -21,3 +21,5 @@ section[id]{scroll-margin-top:120px}.company-header{position:sticky;top:0;z-inde
 /* Одинаковая геометрия действий в карточках альбомов */
 .guide-feature .hero-actions>a{margin:0;height:60px;min-height:60px;border:1px solid var(--line);align-self:stretch}.guide-feature .hero-actions>.primary-link{margin-top:0;border-color:var(--paper)}
 
+
+.social-links{display:flex;flex-wrap:wrap;gap:12px 20px;margin-top:14px}.social-links a{display:inline-flex;align-items:center;min-height:44px;color:var(--accent);font-size:14px}.social-links a:hover{text-decoration:underline}.company-footer,.site-footer{flex-wrap:wrap}.site-footer .social-links{margin-top:0}

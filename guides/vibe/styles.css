@@ -51,3 +51,5 @@
 .spread-heading{flex-direction:column;align-items:stretch;gap:18px}.spread-heading>p{max-width:none;margin:0;padding:18px 22px;background:#242822;border-left:3px solid var(--accent);font-size:16px;color:var(--paper);line-height:1.65}
 
 .guide-audience-help{max-width:1170px;margin:16px auto;padding:0 4.5vw;color:var(--muted);font-size:14px;line-height:1.6}
+
+.social-links{display:flex;flex-wrap:wrap;gap:12px 20px;margin-top:14px}.social-links a{display:inline-flex;align-items:center;min-height:44px;color:var(--accent);font-size:14px}.social-links a:hover{text-decoration:underline}.company-footer,.site-footer{flex-wrap:wrap}.site-footer .social-links{margin-top:0}
