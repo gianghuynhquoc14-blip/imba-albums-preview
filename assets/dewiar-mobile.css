@@ -1,0 +1,7 @@
+/* Keep the vendor iframe inside its container and visible mobile viewport. */
+#Dewiar_AI #emulator {display:flex;flex-direction:column;box-sizing:border-box;width:min(360px,calc(100vw - 24px));height:min(600px,calc(100dvh - 24px));max-height:calc(100dvh - 24px);}
+#Dewiar_AI #emulator .em_menu {flex:0 0 36px;}
+#Dewiar_AI #emulator iframe {width:100%;height:0;min-height:0;flex:1 1 auto;margin:0;float:none;clear:none;}
+@media (max-width:600px) {
+ #Dewiar_AI #emulator {left:12px!important;right:auto!important;top:var(--imba-chat-top,12px)!important;bottom:auto!important;width:calc(100vw - 24px);height:var(--imba-chat-height,calc(100dvh - 24px));max-height:var(--imba-chat-height,calc(100dvh - 24px));}
+}
