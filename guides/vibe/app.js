@@ -263,7 +263,12 @@ function toggleNotes(show) {
 }
 function photoLink(filename, alt) {
   const a = el('a','spread-image-link'); a.href = archive + filename; a.target = '_blank'; a.rel = 'noopener'; a.setAttribute('aria-label','Рассмотреть: ' + alt);
-  const image = el('img','spread-image'); image.src = archive + filename; image.alt = alt; image.decoding = 'async';
+  const image = el('img','spread-image'); image.alt = alt; image.decoding = 'async';
+  const state=el('span','image-load-state','Загружаем пример…');state.setAttribute('role','status');a.append(state);
+  image.addEventListener('load',()=>{state.remove();image.hidden=false;});
+  image.addEventListener('error',()=>{image.hidden=true;state.textContent='Пример не загрузился. Нажмите, чтобы попробовать ещё раз.';a.dataset.imageFailed='true';});
+  a.addEventListener('click',event=>{if(a.dataset.imageFailed==='true'){event.preventDefault();event.stopImmediatePropagation();delete a.dataset.imageFailed;state.textContent='Загружаем пример…';image.src=archive+filename+'?retry='+Date.now();}});
+  image.src=archive+filename;
   a.addEventListener('click',event=>{if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;event.preventDefault();openPhoto(filename,a);});
   a.setAttribute('aria-haspopup','dialog');
   a.append(image); return a;
