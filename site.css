@@ -23,3 +23,5 @@ section[id]{scroll-margin-top:120px}.company-header{position:sticky;top:0;z-inde
 
 
 .social-links{display:flex;flex-wrap:wrap;gap:12px 20px;margin-top:14px}.social-links a{display:inline-flex;align-items:center;min-height:44px;color:var(--accent);font-size:14px}.social-links a:hover{text-decoration:underline}.company-footer,.site-footer{flex-wrap:wrap}.site-footer .social-links{margin-top:0}
+
+.seo-program-summary{max-width:1170px;margin:40px auto;padding:28px 4.5vw;color:var(--paper,#eee9df);line-height:1.7}.seo-program-summary h2{font:400 30px/1.2 Georgia,serif}.seo-program-summary a{color:inherit;text-decoration:underline}.seo-program-summary details{padding:12px 0;border-bottom:1px solid #ffffff26}.seo-program-summary summary{cursor:pointer}
