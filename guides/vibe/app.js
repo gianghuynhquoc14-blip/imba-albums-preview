@@ -450,6 +450,10 @@ document.addEventListener('keydown',event=>{
   if(book.hidden||transitioning||stageDialog.open||contentsDialog.open||target?.closest('.example-controls'))return;
   if(event.key==='ArrowLeft'){event.preventDefault();goToSection(currentSection-1);}else if(event.key==='ArrowRight'){event.preventDefault();goToSection(currentSection+1);}
 });
+// Уточнение владельца 14 октября: общий кадр и сгиб.
+notes.foldLayout={title:'Весь класс на одном развороте.',lead:'Общая фотография может занимать весь разворот. Главное — лица не должны попадать на линию сгиба.',action:'Проверьте центр макета: если сгиб проходит по лицу, сдвиньте кадр или выберите другую фотографию. Фон можно продолжить через центр и до краёв.',faq:[['Нужна ли рамка вокруг общей фотографии?','Нет, общий кадр можно разместить на весь разворот. Важно сохранить лица внутри композиции и вне линии сгиба.']]};
+for(const id of ['serious','fun']){const section=sections.find(s=>s.id===id);if(section){section.lead+=' Общую фотографию можно разместить на весь разворот, оставив лица вне линии сгиба.';section.pins.push({key:'foldLayout',label:'Фото и сгиб',x:50,y:90});}}
+
 renderSpread();
 start.disabled=false;$('coverInspect').disabled=false;
 document.querySelectorAll('button[data-cover]').forEach(button=>{button.disabled=false;});
