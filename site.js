@@ -28,11 +28,11 @@ const workGalleryControllers=new WeakMap();
 (async()=>{
  const cards=[...document.querySelectorAll('[data-work-gallery]')];if(!cards.length)return;
  try{
- const response=await fetch('/assets/work-galleries.json');if(!response.ok)throw Error('Gallery unavailable');const galleries=await response.json();
+ const content=window.homeContentReady?await window.homeContentReady:null;let galleries=content?.galleries;if(!galleries){const response=await fetch('/assets/work-galleries.json');if(!response.ok)throw Error('Gallery unavailable');galleries=await response.json();galleries.hero=[{src:'/assets/archive/winter-30.jpg',alt:'Общие фотографии'}];}
  for(const card of cards){
-  const files=[...galleries[card.dataset.workGallery]];for(let i=files.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[files[i],files[j]]=[files[j],files[i]];}
-  let index=0;const link=card.querySelector('.work-image'),image=link.querySelector('img'),count=card.querySelector('.gallery-count'),title=card.querySelector('h3').textContent;
-  const show=()=>{const url='/assets/archive/'+files[index];image.src=url;image.alt=title+' — пример '+(index+1);link.href=url;link.dataset.photoTitle=title;count.textContent=(index+1)+' / '+files.length;};
+  const files=[...(galleries[card.dataset.workGallery]||[])];if(!files.length){card.hidden=true;continue;}
+  let index=0;const link=card.querySelector('.work-image'),image=link.querySelector('img'),count=card.querySelector('.gallery-count'),title=card.querySelector('h3')?.textContent||card.dataset.galleryTitle||'Фотографии';
+  const show=()=>{const item=files[index],url=typeof item==='string'?'/assets/archive/'+item:item.src;image.src=url;image.alt=typeof item==='string'?title+' — пример '+(index+1):item.alt||title;link.href=url;link.dataset.photoTitle=title;count.textContent=(index+1)+' / '+files.length;};
   const step=direction=>{index=(index+direction+files.length)%files.length;show();};
   workGalleryControllers.set(link,{step,get index(){return index;},total:files.length});
   card.querySelectorAll('[data-gallery-step]').forEach(button=>button.addEventListener('click',()=>step(Number(button.dataset.galleryStep))));show();document.dispatchEvent(new Event('workgalleryready'));

@@ -30,3 +30,6 @@ section[id]{scroll-margin-top:120px}.company-header{position:sticky;top:0;z-inde
 button.public-calendar-day{border:0;padding:0;font-family:inherit;cursor:pointer}button.public-calendar-day:hover,button.public-calendar-day:focus-visible{outline:2px solid #fff1ca;outline-offset:2px}button.public-calendar-day:focus{position:relative;z-index:1}.public-calendar-details{min-height:1.6em;margin:10px 0 0;color:#f5f0e6;font-size:.95rem;line-height:1.6}
 
 .company-nav{flex-wrap:wrap}.company-nav .cabinet-entry{border:1px solid #dfbf7c;border-radius:6px;padding:8px 12px;color:#f5e6bf;white-space:nowrap}.company-nav .cabinet-entry:hover{background:#dfbf7c;color:#171b18}@media(max-width:720px){.company-nav{justify-content:flex-start;gap:10px 16px}.company-nav .cabinet-entry{padding:6px 10px}}
+
+/* Homepage editor preserves the complete frame and supports an empty gallery. */
+.hero-photo .work-image{display:block}.hero-photo img,.work-piece img{object-fit:contain}.hero-photo[hidden],.work-piece[hidden]{display:none!important}.home-hero:has(.hero-photo[hidden]){grid-template-columns:1fr}.hero-photo .gallery-controls{margin-top:10px}
