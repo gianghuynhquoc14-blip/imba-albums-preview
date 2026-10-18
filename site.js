@@ -32,7 +32,7 @@ const workGalleryControllers=new WeakMap();
  for(const card of cards){
   const files=[...(galleries[card.dataset.workGallery]||[])];if(!files.length){card.hidden=true;continue;}
   let index=0;const link=card.querySelector('.work-image'),image=link.querySelector('img'),count=card.querySelector('.gallery-count'),title=card.querySelector('h3')?.textContent||card.dataset.galleryTitle||'Фотографии';
-  const show=()=>{const item=files[index],url=typeof item==='string'?'/assets/archive/'+item:item.src;image.src=url;image.alt=typeof item==='string'?title+' — пример '+(index+1):item.alt||title;link.href=url;link.dataset.photoTitle=title;count.textContent=(index+1)+' / '+files.length;};
+  const show=()=>{const item=files[index],url=typeof item==='string'?'/assets/archive/'+item:item.src;image.src=typeof item==='string'?url:(item.previewSrc||url);image.alt=typeof item==='string'?title+' — пример '+(index+1):item.alt||title;link.href=url;link.dataset.photoTitle=title;count.textContent=(index+1)+' / '+files.length;for(const delta of [-1,1]){const next=files[(index+delta+files.length)%files.length],preload=new Image();preload.src=typeof next==='string'?'/assets/archive/'+next:(next.previewSrc||next.src);}};
   const step=direction=>{index=(index+direction+files.length)%files.length;show();};
   workGalleryControllers.set(link,{step,get index(){return index;},total:files.length});
   card.querySelectorAll('[data-gallery-step]').forEach(button=>button.addEventListener('click',()=>step(Number(button.dataset.galleryStep))));show();document.dispatchEvent(new Event('workgalleryready'));

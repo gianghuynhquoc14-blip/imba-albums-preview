@@ -9,7 +9,7 @@ window.homeContentReady=(async()=>{
    const value=payload.texts[el.dataset.homeText];if(typeof value!=='string'||value===el.dataset.homeOriginal)continue;
    el.replaceChildren();el.hidden=!value.trim();const lines=value.split('\n');lines.forEach((line,index)=>{if(index)el.append(document.createElement('br'));if(el.id==='homeTitle'&&index===lines.length-1&&index>0){const em=document.createElement('em');em.textContent=line;el.append(em);}else el.append(document.createTextNode(line));});
   }
-  const galleries={};for(const [key,photos] of Object.entries(payload.galleries))galleries[key]=photos.map(p=>({...p,src:p.src.startsWith('/home-media/')?origin+p.src:p.src}));
+  const galleries={};for(const [key,photos] of Object.entries(payload.galleries))galleries[key]=photos.map(p=>({...p,src:p.src.startsWith('/home-media/')?origin+p.src:p.src,previewSrc:p.src.startsWith('/home-media/')?origin+p.src.replace(/\.jpg$/,'-view.webp'):p.src}));
   return {galleries};
  }catch(error){if(preview){const notice=document.createElement('p');notice.textContent='Черновик не загрузился. Закройте предпросмотр и попробуйте снова.';document.body.prepend(notice);}return null;}
 })();
