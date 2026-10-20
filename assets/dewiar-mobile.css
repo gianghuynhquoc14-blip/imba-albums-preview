@@ -1,7 +1,44 @@
-/* Keep the vendor iframe inside its container and visible mobile viewport. */
-#Dewiar_AI #emulator {display:flex;flex-direction:column;box-sizing:border-box;width:min(360px,calc(100vw - 24px));height:min(600px,calc(100dvh - 24px));max-height:calc(100dvh - 24px);}
-#Dewiar_AI #emulator .em_menu {flex:0 0 36px;}
-#Dewiar_AI #emulator iframe {width:100%;height:0;min-height:0;flex:1 1 auto;margin:0;float:none;clear:none;}
-@media (max-width:600px) {
- #Dewiar_AI #emulator {left:12px!important;right:auto!important;top:var(--imba-chat-top,12px)!important;bottom:auto!important;width:calc(100vw - 24px);height:var(--imba-chat-height,calc(100dvh - 24px));max-height:var(--imba-chat-height,calc(100dvh - 24px));}
+/* Host-side shell only. The conversation stays in the original Dewiar iframe. */
+body #Dewiar_AI{--imba-chat-ink:#233e36;--imba-chat-paper:#fffdf5;--imba-chat-line:#dce1d6;font-family:Arial,Helvetica,sans-serif}
+body #Dewiar_AI .priv,body #Dewiar_AI::after{display:none!important}
+body #Dewiar_AI #enclkD.imba-chat-launcher{display:flex;align-items:center;gap:11px;right:24px;bottom:24px;left:auto;top:auto;width:auto;height:58px;min-width:190px;padding:0 18px 0 13px;box-sizing:border-box;border:1px solid #ffffff50;border-radius:18px;background:#274b40;color:#fffdf5;box-shadow:0 8px 28px #233e3629;overflow:visible;transition:transform .18s,box-shadow .18s}
+body #Dewiar_AI #enclkD.imba-chat-launcher:hover{transform:translateY(-2px);box-shadow:0 12px 32px #233e3638}
+body #Dewiar_AI #enclkD.imba-chat-launcher>img{display:none}
+body #Dewiar_AI .imba-chat-launcher-icon{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:#ffffff16;flex:0 0 auto}
+body #Dewiar_AI .imba-chat-launcher-copy{display:grid;gap:4px;text-align:left;line-height:1.05}
+body #Dewiar_AI .imba-chat-launcher-copy strong{font:600 14px/1.15 Arial,Helvetica,sans-serif;color:inherit}
+body #Dewiar_AI .imba-chat-launcher-copy small{font:12px/1.15 Arial,Helvetica,sans-serif;color:#e1eadf}
+body #Dewiar_AI[data-imba-chat-open="true"] #enclkD.imba-chat-launcher{visibility:hidden;pointer-events:none}
+body #Dewiar_AI #emulator.imba-chat-shell{display:flex;flex-direction:column;box-sizing:border-box;position:fixed;right:24px!important;bottom:24px!important;left:auto!important;top:auto!important;width:min(440px,calc(100vw - 40px));height:min(720px,calc(100dvh - 40px));max-height:calc(100dvh - 40px);border:1px solid #dce1d6;border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 18px 60px #1c302c33,0 2px 12px #1c302c12;transition:width .18s ease}
+body #Dewiar_AI #emulator.imba-chat-wide{width:min(760px,calc(100vw - 40px))}
+body #Dewiar_AI #emulator.imba-chat-shell .em_menu{display:flex;align-items:center;justify-content:space-between;gap:8px;flex:0 0 auto;width:auto;height:auto;min-height:78px;padding:12px 12px 12px 18px;box-sizing:border-box;background:var(--imba-chat-paper);cursor:default}
+body #Dewiar_AI #emulator.imba-chat-shell .em_menu>.em_link,body #Dewiar_AI #emulator.imba-chat-shell .em_menu>.em_close,body #Dewiar_AI #emulator.imba-chat-shell>.openPg{display:none!important}
+body #Dewiar_AI .imba-chat-brand{display:flex;align-items:center;gap:11px;min-width:0}
+body #Dewiar_AI .imba-chat-avatar{display:grid;place-items:center;width:42px;height:42px;flex:0 0 auto;border-radius:15px;background:#f2d97b;color:var(--imba-chat-ink);font:bold italic 32px/1 Georgia,serif;transform:rotate(-5deg)}
+body #Dewiar_AI .imba-chat-titles{display:grid;gap:5px;min-width:0}
+body #Dewiar_AI .imba-chat-titles strong{font:700 16px/1.2 Arial,Helvetica,sans-serif;color:var(--imba-chat-ink)}
+body #Dewiar_AI .imba-chat-titles span{font:11px/1.35 Arial,Helvetica,sans-serif;color:#68766b}
+body #Dewiar_AI .imba-chat-actions{display:flex;align-items:center;gap:2px;flex:0 0 auto}
+body #Dewiar_AI .imba-chat-action{display:grid;place-items:center;box-sizing:border-box;width:40px;height:40px;min-height:40px;margin:0;padding:8px;border:0;border-radius:12px;background:transparent;color:#526359;box-shadow:none;cursor:pointer}
+body #Dewiar_AI .imba-chat-action:hover{background:#e9eddf;color:#233e36}
+body #Dewiar_AI .imba-chat-action svg{width:21px;height:21px}
+body #Dewiar_AI .imba-chat-action:focus-visible,body #Dewiar_AI .imba-chat-links a:focus-visible,body #Dewiar_AI #enclkD.imba-chat-launcher:focus-visible{outline:3px solid #b69229;outline-offset:3px}
+body #Dewiar_AI .imba-chat-links{display:flex;gap:8px;padding:0 18px 12px;background:var(--imba-chat-paper);border-bottom:1px solid var(--imba-chat-line);flex:0 0 auto}
+body #Dewiar_AI .imba-chat-links a{padding:6px 10px;border:1px solid #dce1d6;border-radius:9px;color:#425a4a;background:#fffef9;font:12px/1.2 Arial,Helvetica,sans-serif;text-decoration:none}
+body #Dewiar_AI .imba-chat-links a:hover{background:#edf1e4;border-color:#bac7ad}
+body #Dewiar_AI #emulator.imba-chat-shell iframe{display:block;width:100%;height:0;min-height:0;flex:1 1 auto;margin:0!important;float:none;clear:none;border:0;border-radius:0;background:#fff;transform:none}
+body #Dewiar_AI .imba-chat-loading{position:absolute;inset:125px 0 0;display:grid;place-items:center;background:#fffdf5;color:#657264;font:14px/1.4 Arial,Helvetica,sans-serif;pointer-events:none}
+body #Dewiar_AI .imba-chat-loading[hidden]{display:none}
+@media(max-width:600px){
+ body #Dewiar_AI #enclkD.imba-chat-launcher{right:16px;bottom:max(16px,env(safe-area-inset-bottom));height:54px;min-width:0;padding:0 14px;border-radius:17px}
+ body #Dewiar_AI .imba-chat-launcher-copy strong{font-size:13px}
+ body #Dewiar_AI .imba-chat-launcher-copy small{font-size:11px}
+ body #Dewiar_AI #emulator.imba-chat-shell,body #Dewiar_AI #emulator.imba-chat-wide{left:10px!important;right:auto!important;top:var(--imba-chat-top,10px)!important;bottom:auto!important;width:calc(100% - 20px);height:var(--imba-chat-height,calc(100dvh - 20px));max-height:var(--imba-chat-height,calc(100dvh - 20px));border-radius:20px}
+ body #Dewiar_AI .imba-chat-expand{display:none}
+ body #Dewiar_AI #emulator.imba-chat-shell .em_menu{min-height:70px;padding:10px 10px 10px 14px}
+ body #Dewiar_AI .imba-chat-avatar{width:37px;height:37px;font-size:28px}
+ body #Dewiar_AI .imba-chat-titles strong{font-size:15px}
+ body #Dewiar_AI .imba-chat-links{padding:0 14px 10px}
+ body #Dewiar_AI .imba-chat-loading{inset:113px 0 0}
 }
+@media(prefers-reduced-motion:reduce){body #Dewiar_AI #emulator.imba-chat-shell,body #Dewiar_AI #enclkD.imba-chat-launcher{transition:none}}
