@@ -7,8 +7,13 @@
   <title>Собери свой альбом Изи — ИМБА</title>
   <meta name="description" content="Пошаговый конструктор альбома Изи: выберите обложку, примеры съёмки и получите PDF-задание для подготовки.">
   <meta name="robots" content="noindex,follow">
-  <link rel="stylesheet" href="builder-simple.css?v=7cae253a4a9604d1b3852a18cd1f1daeb4e494b66534adab95451113bb879ce3">
-  <script src="builder-simple.js?v=edbcda16f9cd517c6f6eed8a7357ca43a373d021995e859e4ba79fc73586e076" defer></script>
+  <link rel="stylesheet" href="builder-simple.css?v=69fdcfd2d0adf7964b6e7f5980c1276459e7231cf068a5a7a7b409bb65613e2f">
+  <script src="builder-simple.js?v=c978fcd8d20db4115d79fabc6de3d8d51b74813a7ad87dc7dee06b5f4e51330a" defer></script>
+  <script src="builder-teachers.js?v=bd82189918675a6253fbe8e8c5242523da442047f313d12b3cdf0242fa54fbfb" defer></script>
+  <script src="builder-portraits.js?v=6391fd2751880ac1bf8f6b4cb09e32bcf8872b0a1c1dac46f8ff83a3370c7a5d" defer></script>
+  <script src="builder-general.js?v=8cc9eb501a8785f50f524b83d3edbe64cbe240f5238e99373762f8b7711efff5" defer></script>
+  <script src="builder-companies.js?v=5009ed76235465ed20b78c5af9c0b2e0b774e311d5c7c05625db07b94a2f9373" defer></script>
+  <script src="builder-fun.js?v=45b63b7b5a91caa7a6fbdca06c8f559132194d93dccf69fe3543861a597f0308" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">К выбору обложки</a>
@@ -19,7 +24,7 @@
 
   <main id="main">
     <section class="intro">
-      <p class="eyebrow">Конструктор Изи · шаг 1 из 5</p>
+      <p class="eyebrow">Конструктор Изи · собираем по шагам</p>
       <h1>Всё начинается<br>с обложки.</h1>
       <p>Листайте реальные варианты, выберите один или покажите свою идею. Здесь не нужно верстать альбом — только рассказать фотографу, каким вы хотите его видеть.</p>
       <div class="identity">
@@ -29,14 +34,15 @@
     </section>
 
     <nav class="steps" aria-label="Этапы конструктора">
-      <button class="active" type="button" aria-current="step"><span>01</span>Обложка</button>
-      <button type="button" disabled><span>02</span>Личный разворот<small>готовим примеры</small></button>
-      <button type="button" disabled><span>03</span>Портрет<small>готовим примеры</small></button>
-      <button type="button" disabled><span>04</span>Общая<small>готовим примеры</small></button>
-      <button type="button" disabled><span>05</span>Компании<small>готовим примеры</small></button>
+      <button id="stepCover" class="active" type="button" aria-current="step"><span>01</span>Обложка</button>
+      <button id="stepPersonal" type="button"><span>02</span>Личный разворот</button>
+      <button type="button" id="stepPortrait"><span>04</span>Портрет</button>
+      <button type="button" id="stepGeneral"><span>05</span>Общая</button>
+      <button type="button" id="stepCompanies"><span>06</span>Компании</button>
+      <button type="button" id="stepFun"><span>07</span>Весёлая общая</button>
     </nav>
 
-    <section class="choice-section" aria-labelledby="coverHeading">
+    <section id="coverStep" class="choice-section" aria-labelledby="coverHeading">
       <div class="section-heading">
         <div><p class="eyebrow">01 · Обложка</p><h2 id="coverHeading">Какой будет первая встреча с альбомом?</h2></div>
         <p id="draftStatus" role="status" aria-live="polite">Черновик сохраняется на этом устройстве.</p>
@@ -76,15 +82,26 @@
       </aside>
     </section>
 
+    <section id="personalStep" class="choice-section" hidden aria-labelledby="personalHeading">
+      <p class="eyebrow">02 · Личный разворот</p><h2 id="personalHeading">Здесь — ты и твоя история.</h2>
+      <p>Твой разворот в твоём экземпляре альбома. Можно выбрать себя любимого, себя с друзьями или любые снимки с вашей фотосессии.</p>
+      <div class="gallery-panel"><button id="personalPrevious" class="round previous" type="button" aria-label="Предыдущий личный разворот">←</button>
+        <figure class="cover-card"><button id="personalZoom" class="cover-image" type="button" aria-label="Рассмотреть личный разворот"><img id="personalImage" alt="" width="1800" height="1200"></button>
+        <figcaption><span id="personalCounter"></span><h3 id="personalTitle"></h3><p id="personalDescription"></p><button id="choosePersonal" class="primary" type="button">Выбрать этот вариант</button></figcaption></figure>
+        <button id="personalNext" class="round next" type="button" aria-label="Следующий личный разворот">→</button></div>
+      <details class="personal-own"><summary>Хочу свой вариант</summary><label>Загрузить пример<input id="personalUpload" type="file" accept="image/jpeg,image/png,image/webp"></label><div id="personalCustomPreview" class="custom-preview"></div><button id="choosePersonalCustom" class="primary" type="button" disabled>Выбрать свой пример</button></details>
+      <label class="personal-note">Что хочется снять для себя?<textarea id="personalNote" rows="3" maxlength="1500" placeholder="Мои настроение, поза, реквизит, друзья или идея кадра…"></textarea></label>
+      <aside class="tips"><p class="eyebrow">Подготовь три настроения</p><h3>Подумай о личном кадре до съёмки.</h3><ul><li>Серьёзный портрет — для одноклассников, родителей и учителей.</li><li>Портрет для себя — с твоим характером и настроением.</li><li>С друзьями — кадры для общего альбома и отдельно для личного разворота.</li><li>Если фото займёт весь разворот, посередине будет сгиб. Обсуди композицию с фотографом заранее.</li></ul></aside>
+    </section>
     <section class="summary" aria-labelledby="summaryTitle">
-      <div><p class="eyebrow">Ваш выбор</p><h2 id="summaryTitle">Первый пункт задания готов.</h2><p id="selectionText">Выберите один вариант обложки.</p></div>
+      <div><p class="eyebrow">Ваш выбор</p><h2 id="summaryTitle">Твои решения для альбома.</h2><p id="selectionText">Выберите один вариант обложки.</p></div>
       <div id="selectionPreview" class="selection-preview"></div>
-      <div class="summary-actions"><button id="downloadPdf" class="primary" type="button" disabled>Скачать PDF с выбором</button><p>Это промежуточный PDF по обложке. Полное задание появится, когда будут заполнены все шаги.</p></div>
+      <p id="personalSelectionText">Личный разворот пока не выбран.</p><div id="personalSelectionPreview" class="selection-preview"></div><div class="summary-actions"><button id="downloadPdf" class="primary" type="button" disabled>Скачать PDF с выбором</button><p>Это промежуточный PDF по выбранным шагам. Полное задание появится, когда будут заполнены все шаги.</p></div>
     </section>
   </main>
 
   <dialog id="zoomDialog"><button id="closeZoom" class="dialog-close" type="button" aria-label="Закрыть">×</button><img id="zoomImage" alt=""><p id="zoomCaption"></p></dialog>
-  <dialog id="resetDialog"><h2>Начать заново?</h2><p>Выбор обложки и загруженный пример будут удалены с этого устройства.</p><div><button id="cancelReset" type="button">Оставить черновик</button><button id="confirmReset" class="danger" type="button">Начать заново</button></div></dialog>
+  <dialog id="resetDialog"><h2>Начать заново?</h2><p>Выбор обложки, личного разворота и загруженные примеры будут удалены с этого устройства.</p><div><button id="cancelReset" type="button">Оставить черновик</button><button id="confirmReset" class="danger" type="button">Начать заново</button></div></dialog>
 
   <footer><a href="/">ИМБА · Магадан</a><a href="./">Примеры альбома Изи</a></footer>
 </body>
