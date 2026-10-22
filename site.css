@@ -33,3 +33,5 @@ button.public-calendar-day{border:0;padding:0;font-family:inherit;cursor:pointer
 
 /* Homepage editor preserves the complete frame and supports an empty gallery. */
 .hero-photo .work-image{display:block}.hero-photo img,.work-piece img{object-fit:contain}.hero-photo[hidden],.work-piece[hidden]{display:none!important}.home-hero:has(.hero-photo[hidden]){grid-template-columns:1fr}.hero-photo .gallery-controls{margin-top:10px}
+
+.public-calendar-day.is-partial{background:linear-gradient(135deg,#e0bc6b 50%,#fffaf0 50%);color:#233b2d;cursor:pointer;border:1px solid #9d7b3d}
