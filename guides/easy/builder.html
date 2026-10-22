@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru" data-audience="school">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f3eddd">
+  <title>Собери свой альбом Изи — ИМБА</title>
+  <meta name="description" content="Пошаговый конструктор альбома Изи: выберите обложку, примеры съёмки и получите PDF-задание для подготовки.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="stylesheet" href="builder-simple.css?v=7cae253a4a9604d1b3852a18cd1f1daeb4e494b66534adab95451113bb879ce3">
+  <script src="builder-simple.js?v=edbcda16f9cd517c6f6eed8a7357ca43a373d021995e859e4ba79fc73586e076" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">К выбору обложки</a>
+  <header class="topbar">
+    <a class="brand" href="./"><b>ИЗИ</b><span>собери свой альбом</span></a>
+    <button id="resetDraft" class="text-button" type="button">Начать заново</button>
+  </header>
+
+  <main id="main">
+    <section class="intro">
+      <p class="eyebrow">Конструктор Изи · шаг 1 из 5</p>
+      <h1>Всё начинается<br>с обложки.</h1>
+      <p>Листайте реальные варианты, выберите один или покажите свою идею. Здесь не нужно верстать альбом — только рассказать фотографу, каким вы хотите его видеть.</p>
+      <div class="identity">
+        <label>Класс и школа<input id="className" maxlength="100" placeholder="Например, 15-11А · школа 15"></label>
+        <label>Кто собирает<input id="authorName" maxlength="100" placeholder="Имя представителя класса"></label>
+      </div>
+    </section>
+
+    <nav class="steps" aria-label="Этапы конструктора">
+      <button class="active" type="button" aria-current="step"><span>01</span>Обложка</button>
+      <button type="button" disabled><span>02</span>Личный разворот<small>готовим примеры</small></button>
+      <button type="button" disabled><span>03</span>Портрет<small>готовим примеры</small></button>
+      <button type="button" disabled><span>04</span>Общая<small>готовим примеры</small></button>
+      <button type="button" disabled><span>05</span>Компании<small>готовим примеры</small></button>
+    </nav>
+
+    <section class="choice-section" aria-labelledby="coverHeading">
+      <div class="section-heading">
+        <div><p class="eyebrow">01 · Обложка</p><h2 id="coverHeading">Какой будет первая встреча с альбомом?</h2></div>
+        <p id="draftStatus" role="status" aria-live="polite">Черновик сохраняется на этом устройстве.</p>
+      </div>
+
+      <div class="category-tabs" role="tablist" aria-label="Виды обложек">
+        <button type="button" role="tab" aria-selected="true" data-category="board">Доска</button>
+        <button type="button" role="tab" aria-selected="false" data-category="school">Школа-иллюстрация</button>
+        <button type="button" role="tab" aria-selected="false" data-category="design">Дизайнерская</button>
+        <button type="button" role="tab" aria-selected="false" data-category="reference">Понравившийся альбом</button>
+        <button type="button" role="tab" aria-selected="false" data-category="own">Своя идея</button>
+      </div>
+
+      <div id="galleryPanel" class="gallery-panel" role="tabpanel">
+        <button id="previousCover" class="round previous" type="button" aria-label="Предыдущий вариант">←</button>
+        <figure class="cover-card">
+          <button id="coverZoom" class="cover-image" type="button" aria-label="Рассмотреть вариант крупнее">
+            <img id="coverImage" alt="" width="1800" height="1265">
+          </button>
+          <figcaption><span id="coverCounter"></span><h3 id="coverTitle"></h3><p id="coverDescription"></p><button id="chooseCover" class="primary" type="button">Выбрать этот вариант</button></figcaption>
+        </figure>
+        <button id="nextCover" class="round next" type="button" aria-label="Следующий вариант">→</button>
+      </div>
+
+      <section id="uploadPanel" class="upload-panel" hidden>
+        <div><p class="eyebrow" id="uploadEyebrow"></p><h3 id="uploadTitle"></h3><p id="uploadDescription"></p></div>
+        <label class="upload-drop">Загрузить фотографию или эскиз<input id="customCover" type="file" accept="image/jpeg,image/png,image/webp"></label>
+        <div id="customPreview" class="custom-preview"></div>
+        <label>Что именно понравилось<textarea id="customComment" rows="4" maxlength="1500" placeholder="Например: нравится расположение текста и тёмный фон, но цвета хотим другие"></textarea></label>
+        <button id="chooseCustom" class="primary" type="button">Выбрать загруженный вариант</button>
+      </section>
+
+      <aside id="boardTips" class="tips">
+        <div class="tape" aria-hidden="true"></div><p class="eyebrow">Если выбираете доску</p><h3>Нарисуйте её до съёмки.</h3>
+        <ul><li>Заранее придумайте содержание и композицию.</li><li>Хорошо протрите поверхность.</li><li>Подготовьте мел или маркеры, тряпку и запасные материалы.</li><li>Пришлите фотографу снимок готовой доски — проверим, хорошо ли она будет смотреться.</li></ul>
+        <p class="joke">Доска всё помнит. Особенно то, что забыли стереть перед съёмкой.</p>
+      </aside>
+    </section>
+
+    <section class="summary" aria-labelledby="summaryTitle">
+      <div><p class="eyebrow">Ваш выбор</p><h2 id="summaryTitle">Первый пункт задания готов.</h2><p id="selectionText">Выберите один вариант обложки.</p></div>
+      <div id="selectionPreview" class="selection-preview"></div>
+      <div class="summary-actions"><button id="downloadPdf" class="primary" type="button" disabled>Скачать PDF с выбором</button><p>Это промежуточный PDF по обложке. Полное задание появится, когда будут заполнены все шаги.</p></div>
+    </section>
+  </main>
+
+  <dialog id="zoomDialog"><button id="closeZoom" class="dialog-close" type="button" aria-label="Закрыть">×</button><img id="zoomImage" alt=""><p id="zoomCaption"></p></dialog>
+  <dialog id="resetDialog"><h2>Начать заново?</h2><p>Выбор обложки и загруженный пример будут удалены с этого устройства.</p><div><button id="cancelReset" type="button">Оставить черновик</button><button id="confirmReset" class="danger" type="button">Начать заново</button></div></dialog>
+
+  <footer><a href="/">ИМБА · Магадан</a><a href="./">Примеры альбома Изи</a></footer>
+</body>
+</html>
