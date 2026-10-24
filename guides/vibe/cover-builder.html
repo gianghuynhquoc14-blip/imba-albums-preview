@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru" data-audience="school">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+ <meta name="theme-color" content="#f3eddd"><meta name="robots" content="noindex,follow">
+ <title>Собери свой Вайб — ИМБА</title>
+ <meta name="description" content="Выберите направление обложки Вайба: глаз, силуэты, доска, школа, графика или собственная творческая идея. Общую часть собирает организатор, личные развороты каждый придумывает для себя.">
+ <link rel="stylesheet" href="../easy/builder-simple.css?v=01d8b004493ae7ff5dbf99a8e49b88ea341c3d1e24f92bfa891c01e6de5f7db0"><link rel="stylesheet" href="cover-builder.css?v=78daba5d88f9c630d966577c3253b72a6498c5c1617d3737413b381c524d8083">
+ <script src="plan-format.js?v=e08037bdbb8bb9878160fe993f5297960e7eb220bfbd05042aa28601e61dfa4e" defer></script><script src="cover-data.js?v=6d0d1608173f78c230cb557297c7f9ed5a9f5feeacad78629b93de73340f8bfc" defer></script><script src="cover-pdf.js?v=e28ad83fd196d7fc039248cd88a7e9bf987b19eed6d9bb9075d9ab28ca78c1ba" defer></script><script src="cover-builder.js?v=ea6b56e70c8e3b13e39a817a5be358c42a763916c82f42c1256ce5f52a8eb1eb" defer></script><script src="personal-builder.js?v=3777b229ed3f66fe3f435ac27a7b192e44f682d3720beed658fab5e1a718a0c6" defer></script>
+ <script src="teachers-adapter.js?v=fde49cc1b443137c7dcb9901d563ed7e7cda41b0b50f14ba7b74308f817092c6" defer></script><script src="teachers-builder.js?v=1cb5ec2ec8d3f57820403bc050b7707c88633bf0a0a4a9d0df2fa5acb170aa67" defer></script><script src="general-builder.js?v=857df3c8f527073ec618f51c7df75dad3bb642bd7a436b6c432e0939e41243e8" defer></script>
+ <link rel="icon" href="/favicon-dab.ico"><link rel="apple-touch-icon" href="/app-icons/icon-dab-180.png">
+</head>
+<body>
+ <a class="skip-link" href="#main">К выбору обложки</a>
+ <header class="topbar"><a class="brand" href="./">ВАЙБ <span>ТВОЯ ИСТОРИЯ СНАРУЖИ</span></a><button class="quiet" id="newCover" type="button" disabled>Новая обложка</button></header>
+ <main id="main">
+  <section class="intro" id="coverIntro"><div><p class="eyebrow">КОНСТРУКТОР ВАЙБА · СОБИРАЕМ ПО ШАГАМ</p><h1>Пусть обложка<br>будет <em>вашей.</em></h1><p class="lead">Глаз, силуэты на закате, доска с вашими шутками или то, чего мы ещё не делали. Здесь выбираем направление, а детали придумываем вместе.</p></div>
+   <div class="identity"><label>Класс и школа<input id="coverSchool" maxlength="100" placeholder="Например, 11А · школа 13"></label><label>Кто собирает идеи<input id="coverAuthor" maxlength="100" placeholder="Имя представителя класса"></label><p>Одна идея может объединять весь класс, а личные детали — отличать каждый альбом.</p></div>
+  </section>
+  <p id="coverStatus" class="cover-status" role="status" aria-live="polite">Открываем сохранённый выбор…</p>
+  <nav class="vibe-steps" aria-label="Разделы конструктора Вайба"><button type="button" id="vibeStepCover" aria-current="page" aria-controls="coverControls vibeAlbumOverview">Общий альбом</button><button type="button" id="vibeStepPersonal" aria-controls="vibePersonalStep">Личные развороты</button></nav>
+  <nav id="vibeCommonStages" class="vibe-common-stages" aria-label="Этапы общего альбома"><button id="commonCover" type="button" aria-current="step">01 · Обложка</button><button id="commonOverview" type="button">02 · Личные: рекомендации</button><button id="stepTeachers" type="button">03 · Учителя</button><button id="stepGeneral" type="button">04 · Серьёзная общая</button></nav>
+  <fieldset id="coverControls" disabled>
+   <legend class="sr-only">Выбор обложки</legend>
+   <section aria-labelledby="coverHeading" id="coverChooser">
+    <div class="section-heading"><div><p class="eyebrow">01 · ОБЛОЖКА</p><h2 id="coverHeading">С чего начинается ваш Вайб?</h2></div><p>Примеры — отправная точка.<br>Смешивайте и предлагайте своё.</p></div>
+    <div class="category-tabs" role="tablist" aria-label="Направления обложки" id="coverCategories"></div>
+    <div id="presetPanel" role="tabpanel" aria-labelledby="coverHeading" class="gallery-panel">
+     <button id="previousCover" class="round previous" type="button" aria-label="Предыдущая обложка">←</button>
+     <figure class="cover-card"><button class="cover-image" type="button" id="zoomCover" aria-label="Рассмотреть обложку целиком"><img id="coverImage" alt=""></button><figcaption><span id="coverCounter"></span><h3 id="coverTitle"></h3><p id="coverDescription"></p><p id="coverIdeaLabel" class="idea-label" hidden>Схема идеи для съёмки</p><button id="chooseCover" class="primary" type="button">Выбрать это направление</button></figcaption></figure>
+     <button id="nextCover" class="round next" type="button" aria-label="Следующая обложка">→</button>
+    </div>
+    <section id="customPanel" class="upload-panel" hidden aria-labelledby="customTitle">
+     <div><p class="eyebrow" id="customEyebrow"></p><h3 id="customTitle"></h3><p id="customDescription"></p><label class="upload-drop">Добавить картинку<input id="customCoverFile" type="file" accept="image/jpeg,image/png,image/webp"></label><small>JPG, PNG или WebP до 12 МБ. Картинка остаётся на этом устройстве, пока вы сами не передадите проект.</small></div>
+     <div id="customPreview" class="custom-preview"></div>
+     <label>Что хочется взять из примера или придумать по-своему?<textarea id="customComment" rows="4" maxlength="4000" placeholder="Цвет, настроение, сюжет, надпись, детали…"></textarea></label>
+     <button id="chooseCustom" class="primary" type="button">Выбрать свою идею</button>
+    </section>
+    <aside class="tips" id="coverTips"><span class="tape" aria-hidden="true"></span><p class="eyebrow">ПОДГОТОВКА</p><h3>Сначала договоримся об идее.</h3><ul id="coverTipList"></ul><p class="joke">Ваш альбом не обязан быть похож на чей-то ещё.</p></aside>
+   </section>
+   <section class="cover-details" aria-labelledby="coverDetailsTitle"><h2 id="coverDetailsTitle">Что объединит ваши обложки?</h2><label>Как делаем обложки<select id="coverMode"><option value="discuss">Пока обсудим с классом и фотографом</option><option value="shared">Одна общая обложка для всех</option><option value="individual">Общая идея, персональная обложка у каждого</option></select></label><p id="coverModeHelp"></p><label>Ваши пожелания к обложке<textarea id="coverNote" rows="4" maxlength="4000" placeholder="Можно смешать идеи: например, силуэты + надписи, глаз + графика. Что важно сохранить именно вашему классу?"></textarea></label></section>
+  </fieldset>
+  <section id="vibeAlbumOverview" hidden aria-labelledby="vibeOverviewTitle">
+   <div class="section-heading"><div><p class="eyebrow">ПОСЛЕ ОБЛОЖКИ · КАК СОБРАТЬ ВАЙБ</p><h2 id="vibeOverviewTitle" tabindex="-1">Общий альбом.<br>Личные истории внутри.</h2></div><p>Общую часть собирает организатор.<br>Личные развороты каждый придумывает для себя.</p></div>
+   <p class="vibe-section-lead">Вот что мы рекомендуем для двух личных разворотов. Это ориентиры: наполнение и расположение фотографий можно придумать по-своему.</p>
+   <ol class="vibe-recommendations">
+    <li><span aria-hidden="true">01</span><div><h3>Первый — про тебя любимого.</h3><p>Лучшие фотографии себя: в творческом, креативном образе и в школьной форме.</p></div></li>
+    <li><span aria-hidden="true">02</span><div><h3>Второй — как захочется.</h3><p>Продолжить свою историю, добавить друзей, увлечения или придумать что-то совсем другое.</p></div></li>
+   </ol>
+   <aside class="personal-guidance-note"><strong>Как придумать фотографии?</strong><p>Расскажем каждому лично в разделе «Личные развороты». А здесь продолжаем собирать общую часть альбома.</p></aside>
+   <div id="commonExampleMount"></div>
+   <div class="personal-step-actions"><button id="overviewEditCover" type="button" class="quiet">← К обложке</button><button id="overviewTeachers" type="button" class="primary">Дальше · Учителя →</button></div>
+  </section>
+  <section id="vibePersonalStep" hidden aria-labelledby="vibePersonalTitle">
+   <div class="section-heading"><div><p class="eyebrow">ЛИЧНЫЕ РАЗВОРОТЫ</p><h2 id="vibePersonalTitle" tabindex="-1">Два разворота.<br>Твоя история.</h2></div><p>Здесь каждый придумывает свой альбом.<br>Общую часть собирает организатор.</p></div>
+   <p class="vibe-section-lead">Оба разворота можно собрать как хочется. Для первого рекомендуем лучшие кадры себя в творческом образе и школьной форме. Второй заполняй по-своему.</p>
+   <aside class="personal-guidance-note"><strong>Идею для твоих фотографий обсудим лично.</strong><p>Полистай примеры для вдохновения. Можно взять понравившийся приём, смешать несколько идей или придумать свою.</p></aside>
+   <div id="personalExampleMount"></div>
+   <div class="personal-step-actions"><button id="backToCommon" type="button" class="quiet">← В общий альбом</button></div>
+  </section>
+  <section class="summary" id="coverSummary" aria-labelledby="coverSummaryTitle"><div><p class="eyebrow">ВАШ ВЫБОР</p><h2 id="coverSummaryTitle" tabindex="-1">Идея общего альбома.</h2><h3>Обложка</h3><p id="coverSelectionText">Выберите направление или расскажите о своей идее.</p><p id="coverSelectionMode"></p><button id="editCover" type="button" class="quiet" hidden>Вернуться к выбору</button></div><div id="coverSelectionPreview" class="selection-preview"></div><div class="summary-actions"><button id="saveCoverProject" type="button" class="primary" disabled>Скачать проект .vibe</button><button id="saveCoverPdf" type="button" class="quiet" disabled>Скачать PDF с выбором</button><p>Это предварительный выбор. Скачайте файл и лично передайте фотографу — автоматически он не отправляется.</p></div><p id="coverExportStatus" role="status" aria-live="polite"></p><div id="coverDownloadLinks"></div></section>
+  <details class="legacy-tools" id="coverLegacy"><summary>Уже есть сохранённый план Вайба?</summary><p>Можно открыть файл .vibe и добавить выбор обложки к нему. Его остальные разделы, включая личные записи, сохранятся в скачанном проекте. Просмотр примеров их не меняет.</p><label>Открыть файл .vibe<input id="openCoverProject" type="file" accept=".vibe,application/json" disabled></label><a href="builder-advanced.html">Открыть прежний подробный конструктор →</a></details>
+ </main>
+ <dialog id="coverZoom" aria-label="Обложка целиком"><button id="closeCoverZoom" class="dialog-close" type="button" aria-label="Закрыть обложку">×</button><img id="coverZoomImage" alt=""><p id="coverZoomCaption"></p></dialog>
+ <dialog id="coverReset" aria-labelledby="coverResetTitle"><h2 id="coverResetTitle">Начать новый выбор обложки?</h2><p>Текущую идею сначала можно скачать. Название класса, остальные развороты и прежний подробный план сохранятся.</p><div><button id="cancelCoverReset" type="button" class="quiet">Оставить</button><button id="confirmCoverReset" type="button" class="danger">Начать заново</button></div></dialog>
+ <footer><a href="./">← К примерам Вайба</a><a href="/">ИМБА · Магадан</a></footer>
+</body></html>
