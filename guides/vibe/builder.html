@@ -5,9 +5,11 @@
  <meta name="theme-color" content="#f3eddd"><meta name="robots" content="noindex,follow">
  <title>Собери свой Вайб — ИМБА</title>
  <meta name="description" content="Выберите направление обложки Вайба: глаз, силуэты, доска, школа, графика или собственная творческая идея. Общую часть собирает организатор, личные развороты каждый придумывает для себя.">
- <link rel="stylesheet" href="../easy/builder-simple.css?v=01d8b004493ae7ff5dbf99a8e49b88ea341c3d1e24f92bfa891c01e6de5f7db0"><link rel="stylesheet" href="cover-builder.css?v=f3a519f4d3a761566c76d5051a5aba70e6c3ddcb817c7f2800a5e29124f4ef1d">
- <script src="plan-format.js?v=e08037bdbb8bb9878160fe993f5297960e7eb220bfbd05042aa28601e61dfa4e" defer></script><script src="cover-data.js?v=6d0d1608173f78c230cb557297c7f9ed5a9f5feeacad78629b93de73340f8bfc" defer></script><script src="cover-pdf.js?v=e28ad83fd196d7fc039248cd88a7e9bf987b19eed6d9bb9075d9ab28ca78c1ba" defer></script><script src="cover-builder.js?v=ea6b56e70c8e3b13e39a817a5be358c42a763916c82f42c1256ce5f52a8eb1eb" defer></script><script src="personal-builder.js?v=3777b229ed3f66fe3f435ac27a7b192e44f682d3720beed658fab5e1a718a0c6" defer></script>
- <script src="teachers-adapter.js?v=fde49cc1b443137c7dcb9901d563ed7e7cda41b0b50f14ba7b74308f817092c6" defer></script><script src="teachers-builder.js?v=1cb5ec2ec8d3f57820403bc050b7707c88633bf0a0a4a9d0df2fa5acb170aa67" defer></script><script src="general-builder.js?v=857df3c8f527073ec618f51c7df75dad3bb642bd7a436b6c432e0939e41243e8" defer></script>
+ <link rel="stylesheet" href="../easy/builder-simple.css?v=01d8b004493ae7ff5dbf99a8e49b88ea341c3d1e24f92bfa891c01e6de5f7db0"><link rel="stylesheet" href="cover-builder.css?v=e2b65e87b94c988bf98d6dd863f8a8363cb721fb9a0f66be41112290a1c1677e">
+ <script src="plan-format.js?v=8876d446d5d1b2a5539b99b422a333b443efb9e0d4665c702917938bb8b5a465" defer></script><script src="cover-data.js?v=6d0d1608173f78c230cb557297c7f9ed5a9f5feeacad78629b93de73340f8bfc" defer></script><script src="cover-pdf.js?v=e28ad83fd196d7fc039248cd88a7e9bf987b19eed6d9bb9075d9ab28ca78c1ba" defer></script><script src="cover-builder.js?v=43791bd11cf772699973e5e428354b864ae54d48bafc1eafd21fea14e13b51e8" defer></script><script src="personal-builder.js?v=3777b229ed3f66fe3f435ac27a7b192e44f682d3720beed658fab5e1a718a0c6" defer></script>
+ <script src="teachers-adapter.js?v=fde49cc1b443137c7dcb9901d563ed7e7cda41b0b50f14ba7b74308f817092c6" defer></script><script src="teachers-builder.js?v=1cb5ec2ec8d3f57820403bc050b7707c88633bf0a0a4a9d0df2fa5acb170aa67" defer></script><script src="general-builder.js?v=ce8187e45d3ff0ff3a88b0963faae76eefa28113986cef8753545c917fcb1f6f" defer></script>
+ <script src="portrait-photo-data.js?v=927998887071cd25e2f9b10a4d0e37f1b1812c60220ee38fc063aeb63085f76b" defer></script><script src="portrait-builder.js?v=326db3b9efa5cbf565fa245497f0f57d95b0ebaba1b768d4b61a9a61916c3a5a" defer></script><script src="simple-choice-block.js?v=c985e87900434a7e8ee9d727bf8ed015e05956af878676b4617fb927ca99b789" defer></script><script src="fun-data.js?v=f38554a772fc9aeeea49ab8eecfa20014d16bf51e16fe4b6fd8de72fc840b820" defer></script><script src="memory-data.js?v=09dc47cc0b9d3ef6c15bc1aa87f8288af6b5507605655657626eda609822acb2" defer></script><script src="classic-options.js?v=ff4289f8e04fca6adaa7dbcdc2f49e81e14756b16d12e1953106358e9426d20b" defer></script>
+ <script src="gallery-only-block.js?v=6cd2a3818b6baefd0660804f1709ef16552526d4b5177fa58c8ff8421f571e21" defer></script><script src="creative-finale.js?v=c4fd7800d21b87009434f580e8b3a90593fbbbef25e6702f2182cd3fcbb711e7" defer></script>
  <link rel="icon" href="/favicon-dab.ico"><link rel="apple-touch-icon" href="/app-icons/icon-dab-180.png">
 </head>
 <body>
@@ -19,7 +21,7 @@
   </section>
   <p id="coverStatus" class="cover-status" role="status" aria-live="polite">Открываем сохранённый выбор…</p>
   <nav class="vibe-steps" aria-label="Разделы конструктора Вайба"><button type="button" id="vibeStepCover" aria-current="page" aria-controls="coverControls vibeAlbumOverview">Общий альбом</button><button type="button" id="vibeStepPersonal" aria-controls="vibePersonalStep">Личные развороты</button></nav>
-  <nav id="vibeCommonStages" class="vibe-common-stages" aria-label="Этапы общего альбома"><button id="commonCover" type="button" aria-current="step">01 · Обложка</button><button id="commonOverview" type="button">02 · Личные: рекомендации</button><button id="stepTeachers" type="button">03 · Учителя</button><button id="stepGeneral" type="button">04 · Серьёзная общая</button></nav>
+  <nav id="vibeCommonStages" class="vibe-common-stages" aria-label="Этапы общего альбома"><button id="commonCover" type="button" aria-current="step">01 · Обложка</button><button id="commonOverview" type="button">02 · Личные: рекомендации</button><button id="stepTeachers" type="button">03 · Учителя</button><button id="stepGeneral" type="button">04 · Серьёзная общая</button><button id="stepPortraits" type="button">05 · Портреты и цитаты</button><button id="stepFun" type="button">06 · Весёлая общая</button><button id="stepMemories" type="button">07 · В день классики</button><button id="stepCreative" type="button">08 · Творческие компании</button><button id="stepPhone" type="button">09 · Фото с телефонов</button><button id="stepEpic" type="button">10 · Эпический кадр</button></nav>
   <fieldset id="coverControls" disabled>
    <legend class="sr-only">Выбор обложки</legend>
    <section aria-labelledby="coverHeading" id="coverChooser">
@@ -48,6 +50,7 @@
     <li><span aria-hidden="true">02</span><div><h3>Второй — как захочется.</h3><p>Продолжить свою историю, добавить друзей, увлечения или придумать что-то совсем другое.</p></div></li>
    </ol>
    <aside class="personal-guidance-note"><strong>Как придумать фотографии?</strong><p>Расскажем каждому лично в разделе «Личные развороты». А здесь продолжаем собирать общую часть альбома.</p></aside>
+   <aside class="vibe-inspiration-links"><h3>Вдохновиться и подготовиться</h3><a href="/references/?topic=personal" target="_blank" rel="noopener">Галерея личных разворотов ↗</a><a href="/references/?topic=creative" target="_blank" rel="noopener">Подборка творческих идей ↗</a><a href="preparation/" target="_blank" rel="noopener">Подготовка к съёмкам Вайба ↗</a></aside>
    <div id="commonExampleMount"></div>
    <div class="personal-step-actions"><button id="overviewEditCover" type="button" class="quiet">← К обложке</button><button id="overviewTeachers" type="button" class="primary">Дальше · Учителя →</button></div>
   </section>
@@ -55,6 +58,7 @@
    <div class="section-heading"><div><p class="eyebrow">ЛИЧНЫЕ РАЗВОРОТЫ</p><h2 id="vibePersonalTitle" tabindex="-1">Два разворота.<br>Твоя история.</h2></div><p>Здесь каждый придумывает свой альбом.<br>Общую часть собирает организатор.</p></div>
    <p class="vibe-section-lead">Оба разворота можно собрать как хочется. Для первого рекомендуем лучшие кадры себя в творческом образе и школьной форме. Второй заполняй по-своему.</p>
    <aside class="personal-guidance-note"><strong>Идею для твоих фотографий обсудим лично.</strong><p>Полистай примеры для вдохновения. Можно взять понравившийся приём, смешать несколько идей или придумать свою.</p></aside>
+   <aside class="vibe-inspiration-links"><h3>Вдохновиться и подготовиться</h3><a href="/references/?topic=personal" target="_blank" rel="noopener">Галерея личных разворотов ↗</a><a href="/references/?topic=creative" target="_blank" rel="noopener">Подборка творческих идей ↗</a><a href="preparation/" target="_blank" rel="noopener">Подготовка к съёмкам Вайба ↗</a></aside>
    <div id="personalExampleMount"></div>
    <div class="personal-step-actions"><button id="backToCommon" type="button" class="quiet">← В общий альбом</button></div>
   </section>

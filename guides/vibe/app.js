@@ -1,6 +1,7 @@
 'use strict';
 // Продолжение прототипа «Вайб». Реальные примеры не являются выбором класса.
 const archive = '/assets/archive/';
+const archiveAssetUrl=file=>file.startsWith('/')?file:archive+file;
 const sections = [
   {id:'personal-one', name:'Личный разворот 1', kicker:'01 / Личное', title:'Место для себя.', lead:'Первые два разворота истории — твои. Можно показать характер, увлечение или то, каким ты запомнишь школу.',
     caption:'Пример личного разворота из нашего архива. Следующий разворот — пример другого ученика из другого альбома. Нажми на фотографию, чтобы рассмотреть её.',
@@ -222,10 +223,11 @@ notes.photobooth.action='Заранее выберите фотобудку ил
 notes.memories.lead=notes.photobooth.lead;
 notes.memories.action='Соберите любимые школьные снимки и мемы и передайте их для макета. Фотограф подскажет, какие изображения подходят для печати.';
 memorySection.examples=[{"label": "Красный свет — серьёзные несерьёзные", "images": ["photobooth/DSC09164.jpg", "photobooth/DSC09173.jpg", "photobooth/DSC09190.jpg", "photobooth/DSC09199.jpg", "photobooth/DSC09216.jpg", "photobooth/DSC09258.jpg"], "alt": "Красный свет — серьёзные несерьёзные — фотобудка в одной локации"}, {"label": "У доски — свои правила", "images": ["photobooth/DSC02694.jpg", "photobooth/DSC02714.jpg", "photobooth/DSC02723.jpg", "photobooth/DSC02733.jpg", "photobooth/DSC02786.jpg", "photobooth/DSC02810.jpg"], "alt": "У доски — свои правила — фотобудка в одной локации"}, {"label": "Книги, скелет и немного магии", "images": ["photobooth/DSC01471.jpg", "photobooth/DSC01515.jpg", "photobooth/DSC01525.jpg", "photobooth/DSC01559.jpg", "photobooth/DSC01577.jpg"], "alt": "Книги, скелет и немного магии — фотобудка в одной локации"}, {"label": "Холст один — характеры разные", "images": ["photobooth/DSC03387.jpg", "photobooth/DSC03392.jpg", "photobooth/DSC03418.jpg", "photobooth/DSC03447.jpg", "photobooth/DSC03452.jpg"], "alt": "Холст один — характеры разные — фотобудка в одной локации"}];
-memorySection.caption='Каждая подборка — отдельная локация одной фотобудки. Камера и свет остаются на месте, а ребята меняют позы, компании и реквизит. Здесь примеры кадров, а не готовый печатный макет.';
+memorySection.caption='Одна локация с настроенной камерой и светом. Сначала — примеры полных разворотов, каждый для отдельного класса; дальше — идеи поз, компаний и реквизита.';
 
 setExamples('portraits',[["Пример 1", "vibe-portraits-quotes/06-000.jpg", "Портреты Вайба с именами, цитатами и рисунками"], ["Пример 2", "vibe-portraits-quotes/07-000.jpg", "Портреты Вайба с именами, цитатами и рисунками"], ["Пример 3", "vibe-portraits-quotes/08-000.jpg", "Портреты Вайба с именами, цитатами и рисунками"], ["Пример 4", "vibe-portraits-quotes/09-000.jpg", "Портреты Вайба с именами, цитатами и рисунками"]],'Два человека на странице, четыре на развороте. Портреты чередуются с именами, цитатами и рисунками. Можно предложить своё оформление.');
-memorySection.examples.unshift({label:'Готовый макет фотобудки',images:['photobooth-layout/04-000.jpg'],alt:'Готовый макет фотобудки: девять фотографий в одной локации с рисунками'});
+memorySection.examples.unshift({label:'Готовый макет фотобудки',images:['photobooth-layout/04-000.jpg'],spread:true,alt:'Готовый макет фотобудки: девять фотографий в одной локации с рисунками'});
+memorySection.examples.unshift(...[1,2,3,4].map(n=>({label:'Фотобудка · пример полного разворота '+n,images:['/guides/shared/photobooth/class-'+n+'.webp'],alt:'Пример разворота фотобудки одного класса',spread:true})));
 // Портретные развороты с цветными рисунками.
 sections.find(s=>s.id==='portraits').examples.push(...[{"label": "Цветные рисунки · 1", "images": ["vibe-portraits-colour/05-000.jpg"], "alt": "Готовый портретный разворот с цитатами и цветными рисунками"}, {"label": "Цветные рисунки · 2", "images": ["vibe-portraits-colour/06-000.jpg"], "alt": "Готовый портретный разворот с цитатами и цветными рисунками"}, {"label": "Цветные рисунки · 3", "images": ["vibe-portraits-colour/07-000.jpg"], "alt": "Готовый портретный разворот с цитатами и цветными рисунками"}, {"label": "Цветные рисунки · 4", "images": ["vibe-portraits-colour/08-000.jpg"], "alt": "Готовый портретный разворот с цитатами и цветными рисунками"}]);
 
@@ -266,13 +268,13 @@ function toggleNotes(show) {
   $('notesToggle').replaceChildren(el('span','',show ? '−' : '＋'),document.createTextNode(show ? 'Скрыть пометки' : 'За кадром'));
 }
 function photoLink(filename, alt) {
-  const a = el('a','spread-image-link'); a.href = archive + filename; a.target = '_blank'; a.rel = 'noopener'; a.setAttribute('aria-label','Рассмотреть: ' + alt);
+  const a = el('a','spread-image-link'); a.href = archiveAssetUrl(filename); a.target = '_blank'; a.rel = 'noopener'; a.setAttribute('aria-label','Рассмотреть: ' + alt);
   const image = el('img','spread-image'); image.alt = alt; image.decoding = 'async';
   const state=el('span','image-load-state','Загружаем пример…');state.setAttribute('role','status');a.append(state);
   image.addEventListener('load',()=>{state.remove();image.hidden=false;});
   image.addEventListener('error',()=>{image.hidden=true;state.textContent='Пример не загрузился. Нажмите, чтобы попробовать ещё раз.';a.dataset.imageFailed='true';});
-  a.addEventListener('click',event=>{if(a.dataset.imageFailed==='true'){event.preventDefault();event.stopImmediatePropagation();delete a.dataset.imageFailed;state.textContent='Загружаем пример…';image.src=archive+filename+'?retry='+Date.now();}});
-  image.src=archive+filename;
+  a.addEventListener('click',event=>{if(a.dataset.imageFailed==='true'){event.preventDefault();event.stopImmediatePropagation();delete a.dataset.imageFailed;state.textContent='Загружаем пример…';image.src=archiveAssetUrl(filename)+'?retry='+Date.now();}});
+  image.src=archiveAssetUrl(filename);
   a.addEventListener('click',event=>{if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;event.preventDefault();openPhoto(filename,a);});
   a.setAttribute('aria-haspopup','dialog');
   a.append(image); return a;
@@ -282,11 +284,12 @@ function renderSpread(focus = false) {
   $('sectionNumber').textContent = section.kicker;
   $('mapTitle').textContent = section.title;
   $('spreadLead').textContent = section.lead;
-  $('spreadCaption').dataset.exampleType=['memories','creativeGroups'].includes(section.id)?'photos':'spread';
+  const previewIsSpread=section.id==='memories'&&section.examples?.[currentExample]?.spread;
+  $('spreadCaption').dataset.exampleType=previewIsSpread?'spread':['memories','creativeGroups'].includes(section.id)?'photos':'spread';
   $('findIdeaPrompt').hidden=!section.id.startsWith('personal');
   $('portraitArchive').hidden=section.id!=='portraits';
   $('generalArchive').hidden=!['serious','fun'].includes(section.id);
-  $('spreadCaption').textContent = (section.id==='memories'&&currentExample===0?'Готовый макет фотобудки: пример расположения фотографий и рисунков. ':['memories','creativeGroups'].includes(section.id)?'Идеи для фотографий: отдельные кадры показывают позы, свет и реквизит, а не готовую компоновку разворота. ':(['serious','fun'].includes(section.id)?'Общая фотография занимает весь разворот. ':'Пример оформления разворота. '))+section.caption; $('captionDetails').open=false;
+  $('spreadCaption').textContent = (previewIsSpread?'Пример полного разворота фотобудки. ':['memories','creativeGroups'].includes(section.id)?'Идеи для фотографий: отдельные кадры показывают позы, свет и реквизит, а не готовую компоновку разворота. ':(['serious','fun'].includes(section.id)?'Общая фотография занимает весь разворот. ':'Пример оформления разворота. '))+section.caption; $('captionDetails').open=false;
   const media = $('spreadMedia'); media.replaceChildren();
   if(section.examples) {
     const example = section.examples[currentExample];
@@ -380,7 +383,7 @@ function openCoverPhoto(opener) {
 function renderPhoto() {
   const photo=photoGallery[photoIndex];if(!photo)return;
   const image=$('photoImage');photoDialog.dataset.loading='true';
-  image.src=archive+photo.file;image.alt=photo.alt;
+  image.src=archiveAssetUrl(photo.file);image.alt=photo.alt;
   $('photoTitle').textContent=photo.label;$('photoOriginal').href=image.src;
   $('photoCounter').textContent=String(photoIndex+1).padStart(2,'0')+' / '+String(photoGallery.length).padStart(2,'0');
   $('photoPrevious').disabled=photoIndex===0;$('photoNext').disabled=photoIndex===photoGallery.length-1;

@@ -359,7 +359,7 @@ function renderSpread(focus = false) {
   $('mapTitle').textContent = section.title;
   $('spreadLead').textContent = section.lead;
   let boothAlternative=$('photoboothAlternative');
-  if(!boothAlternative){boothAlternative=el('aside','examples-explainer');boothAlternative.id='photoboothAlternative';boothAlternative.append(el('p','','В Изи вместо компаний можно выбрать фотобудку — ребята снимают себя сами на настроенную фотографом камеру. Заранее договоритесь о замене с фотографом.'),Object.assign(el('a','dialog-link','Фотобудка — посмотреть примеры ↗'),{href:'/guides/vibe/#photobooth'}));$('spreadLead').parentElement.after(boothAlternative);}
+  if(!boothAlternative){boothAlternative=el('aside','examples-explainer');boothAlternative.id='photoboothAlternative';boothAlternative.append(el('p','','В Изи вместо компаний можно выбрать фотобудку — ребята снимают себя сами на настроенную фотографом камеру. Заранее договоритесь о замене с фотографом.'),Object.assign(el('a','dialog-link','Фотобудка — посмотреть примеры ↗'),{href:'/references/?topic=photobooth'}));$('spreadLead').parentElement.after(boothAlternative);}
   boothAlternative.hidden=section.id!=='groups';
 
   $('findIdeaPrompt').hidden=!section.id.startsWith('personal');
