@@ -29,3 +29,6 @@
 #spreadExamplesDialog .preview-toolbar button{max-width:100%;white-space:normal}
 
 .social-links{display:flex;flex-wrap:wrap;gap:12px 20px;margin-top:14px}.social-links a{display:inline-flex;align-items:center;min-height:44px;color:var(--accent);font-size:14px}.social-links a:hover{text-decoration:underline}.company-footer,.site-footer{flex-wrap:wrap}.site-footer .social-links{margin-top:0}
+
+/* Keep the existing-plan title and reset control inside narrow screens. */
+@media(max-width:600px){.builder-title{flex-wrap:wrap}.builder-title>div{min-width:0;flex:1 1 240px}.builder-title h1{overflow-wrap:anywhere}}
