@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "checkedDate": "2026-10-26",
+  "source": "https://fotofiera.ru/",
+  "requestedPremiumSource": "https://order.fotofiera.ru/products/photobooks/premium_photobooks",
+  "premiumVerified": false,
+  "priceStatus": "request",
+  "products": [
+    {
+      "id": "layflat",
+      "title": "Книга с плотными разворотами",
+      "subtitle": "Для фотографий, которым хочется дать больше места.",
+      "supplierFamily": "Индибук",
+      "minSpreads": 2,
+      "maxSpreads": 15,
+      "formats": [
+        {"id":"square-23","label":"23 × 23 см · квадратная","widthMm":230,"heightMm":230},
+        {"id":"portrait-21-30","label":"21 × 30 см · вертикальная","widthMm":210,"heightMm":300}
+      ],
+      "papers": [
+        {"id":"thick-06","label":"Плотная страница · 0,6 мм"},
+        {"id":"thick-10","label":"Плотная страница · 1,0 мм"},
+        {"id":"thick-14","label":"Плотная страница · 1,4 мм"}
+      ],
+      "finishes":[{"id":"matte","label":"Матовая"},{"id":"gloss","label":"Глянцевая"},{"id":"texture","label":"Фактурная"}],
+      "note":"Раскрытие на 180°. Формат, материалы и окончательную стоимость подтвердим перед заказом."
+    },
+    {
+      "id": "multipage",
+      "title": "Многостраничная фотокнига",
+      "subtitle": "Когда историй и фотографий накопилось много.",
+      "supplierFamily": "Многостраничные книги",
+      "minSpreads": 5,
+      "maxSpreads": 60,
+      "formats": [
+        {"id":"square-23","label":"23 × 23 см · квадратная","widthMm":230,"heightMm":230},
+        {"id":"portrait-21-30","label":"21 × 30 см · вертикальная","widthMm":210,"heightMm":300},
+        {"id":"landscape-30-21","label":"30 × 21 см · горизонтальная","widthMm":300,"heightMm":210},
+        {"id":"square-30","label":"30 × 30 см · квадратная","widthMm":300,"heightMm":300}
+      ],
+      "papers": [
+        {"id":"paper-170","label":"Бумага · 170 г/м²"},
+        {"id":"paper-200","label":"Бумага · 200 г/м²"},
+        {"id":"paper-250","label":"Бумага · 250 г/м²"}
+      ],
+      "finishes":[{"id":"matte","label":"Матовая"},{"id":"gloss","label":"Глянцевая"},{"id":"texture","label":"Фактурная"},{"id":"none","label":"Без ламинации"}],
+      "note":"От 10 до 120 страниц. Для бумаги 250 г/м² нужна ламинация. Остальные параметры подтвердим перед заказом."
+    }
+  ],
+  "covers":[
+    {"id":"photo","label":"Фотография на обложке","upgraded":false},
+    {"id":"material","label":"Переплётный материал · подберём оттенок","upgraded":true},
+    {"id":"eco","label":"Экокожа · подберём оттенок","upgraded":true}
+  ]
+}
