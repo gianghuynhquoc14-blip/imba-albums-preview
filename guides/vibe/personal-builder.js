@@ -40,8 +40,8 @@
   $('personalExampleMount').append(examplesSection);core.showPersonalView();core.scrollTo(host);$('vibePersonalTitle').focus({preventScroll:true});
  }
  function restore(){index=0;render();}
- $('vibeStepCover').onclick=()=>{core.showCover();};$('vibeStepPersonal').onclick=show;
- $('backToCommon').onclick=()=>{core.showCover();};
+ $('vibeStepCover').onclick=()=>{core.returnCommon();};$('vibeStepPersonal').onclick=show;
+ $('backToCommon').onclick=()=>{core.returnCommon();};
  $('overviewEditCover').onclick=()=>{core.showCover();};$('overviewTeachers').onclick=()=>core.showTeachers();
  $('commonExampleMount').append(examplesSection);render();
  // Keep imported personal data intact, but do not export browsed examples as decisions.
