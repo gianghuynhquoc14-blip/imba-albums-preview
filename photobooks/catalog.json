@@ -1,55 +1,279 @@
 {
-  "version": 1,
+  "version": 2,
   "checkedDate": "2026-10-26",
-  "source": "https://fotofiera.ru/",
+  "source": "https://order.fotofiera.ru/products/photobooks/premium_photobooks",
   "requestedPremiumSource": "https://order.fotofiera.ru/products/photobooks/premium_photobooks",
+  "premiumCatalogRead": true,
   "premiumVerified": false,
+  "verificationScope": "Three families, formats, block choices and numeric ranges verified in rendered authenticated forms. Bespoke details and final combinations confirmed at quotation.",
   "priceStatus": "request",
   "products": [
     {
       "id": "layflat",
-      "title": "Книга с плотными разворотами",
-      "subtitle": "Для фотографий, которым хочется дать больше места.",
-      "supplierFamily": "Индибук",
-      "minSpreads": 2,
-      "maxSpreads": 15,
+      "title": "IndiBook · плотные развороты",
+      "subtitle": "Плотные страницы для небольших и больших историй.",
+      "supplierFamily": "Премиум фотокниги IndiBook",
+      "source": "https://order.fotofiera.ru/products/photobooks/premium_photobooks/premium_indibook",
+      "minSpreads": 5,
+      "maxSpreads": 30,
+      "maxQuantity": 30,
       "formats": [
-        {"id":"square-23","label":"23 × 23 см · квадратная","widthMm":230,"heightMm":230},
-        {"id":"portrait-21-30","label":"21 × 30 см · вертикальная","widthMm":210,"heightMm":300}
+        {
+          "id": "square-23",
+          "label": "23 × 23 см · квадратная",
+          "widthMm": 230,
+          "heightMm": 230
+        },
+        {
+          "id": "portrait-21-30",
+          "label": "21 × 30 см · вертикальная",
+          "widthMm": 210,
+          "heightMm": 300
+        },
+        {
+          "id": "portrait-16-23",
+          "label": "16 × 23 см · вертикальная",
+          "widthMm": 160,
+          "heightMm": 230,
+          "maxSpreads": 15
+        }
       ],
+      "paperLabel": "Толщина страницы",
+      "finishLabel": "Ламинация страниц",
       "papers": [
-        {"id":"thick-06","label":"Плотная страница · 0,6 мм"},
-        {"id":"thick-10","label":"Плотная страница · 1,0 мм"},
-        {"id":"thick-14","label":"Плотная страница · 1,4 мм"}
+        {
+          "id": "thick-06",
+          "label": "Плотная страница · 0,6 мм",
+          "maxSpreads": 30
+        },
+        {
+          "id": "thick-10",
+          "label": "Плотная страница · 1,0 мм",
+          "maxSpreads": 30
+        },
+        {
+          "id": "thick-14",
+          "label": "Плотная страница · 1,4 мм",
+          "maxSpreads": 20
+        }
       ],
-      "finishes":[{"id":"matte","label":"Матовая"},{"id":"gloss","label":"Глянцевая"},{"id":"texture","label":"Фактурная"}],
-      "note":"Раскрытие на 180°. Формат, материалы и окончательную стоимость подтвердим перед заказом."
+      "finishes": [
+        {
+          "id": "matte",
+          "label": "Матовая"
+        },
+        {
+          "id": "gloss",
+          "label": "Глянцевая"
+        },
+        {
+          "id": "texture",
+          "label": "Лёгкая фактура"
+        }
+      ],
+      "note": "От 5 разворотов. Для 16 × 23 см максимум 15; для страниц 1,4 мм — до 20 в остальных форматах. Конкретную обложку и оттенок согласуем перед заказом."
+    },
+    {
+      "id": "photo",
+      "title": "Фотокнига на фотобумаге",
+      "subtitle": "Классическая фотопечать и плотные страницы.",
+      "supplierFamily": "Премиум фотокниги Фотоспособом",
+      "source": "https://order.fotofiera.ru/products/photobooks/premium_photobooks/premium_photo_book",
+      "minSpreads": 5,
+      "maxSpreads": 30,
+      "maxQuantity": 30,
+      "formats": [
+        {
+          "id": "square-30",
+          "label": "30 × 30 см · квадратная",
+          "widthMm": 300,
+          "heightMm": 300
+        },
+        {
+          "id": "landscape-30-25",
+          "label": "30 × 25 см · горизонтальная",
+          "widthMm": 300,
+          "heightMm": 250
+        },
+        {
+          "id": "square-25",
+          "label": "25 × 25 см · квадратная",
+          "widthMm": 250,
+          "heightMm": 250
+        },
+        {
+          "id": "landscape-30-21",
+          "label": "30 × 21 см · горизонтальная",
+          "widthMm": 300,
+          "heightMm": 210
+        },
+        {
+          "id": "square-20",
+          "label": "20 × 20 см · квадратная",
+          "widthMm": 200,
+          "heightMm": 200
+        },
+        {
+          "id": "portrait-21-30",
+          "label": "21 × 30 см · вертикальная",
+          "widthMm": 210,
+          "heightMm": 300
+        }
+      ],
+      "paperLabel": "Толщина страницы",
+      "finishLabel": "Фотобумага",
+      "papers": [
+        {
+          "id": "thick-10",
+          "label": "Плотная страница · 1,0 мм",
+          "maxSpreads": 30
+        },
+        {
+          "id": "thick-14",
+          "label": "Плотная страница · 1,4 мм",
+          "maxSpreads": 20
+        }
+      ],
+      "finishes": [
+        {
+          "id": "matte",
+          "label": "Матовая тиснёная фотобумага"
+        },
+        {
+          "id": "gloss",
+          "label": "Глянцевая фотобумага"
+        }
+      ],
+      "note": "От 5 до 30 разворотов со страницами 1,0 мм; со страницами 1,4 мм — до 20. Матовая или глянцевая фотобумага."
     },
     {
       "id": "multipage",
       "title": "Многостраничная фотокнига",
-      "subtitle": "Когда историй и фотографий накопилось много.",
-      "supplierFamily": "Многостраничные книги",
+      "subtitle": "Семейная хроника, путешествие или большая коллекция фотографий.",
+      "supplierFamily": "Премиум Полиграфическим способом",
+      "source": "https://order.fotofiera.ru/products/photobooks/premium_photobooks/premium_poly_book",
       "minSpreads": 5,
-      "maxSpreads": 60,
+      "maxSpreads": 150,
+      "maxQuantity": 100,
       "formats": [
-        {"id":"square-23","label":"23 × 23 см · квадратная","widthMm":230,"heightMm":230},
-        {"id":"portrait-21-30","label":"21 × 30 см · вертикальная","widthMm":210,"heightMm":300},
-        {"id":"landscape-30-21","label":"30 × 21 см · горизонтальная","widthMm":300,"heightMm":210},
-        {"id":"square-30","label":"30 × 30 см · квадратная","widthMm":300,"heightMm":300}
+        {
+          "id": "landscape-30-21",
+          "label": "30 × 21 см · горизонтальная",
+          "widthMm": 300,
+          "heightMm": 210
+        },
+        {
+          "id": "portrait-21-30",
+          "label": "21 × 30 см · вертикальная",
+          "widthMm": 210,
+          "heightMm": 300
+        },
+        {
+          "id": "square-20",
+          "label": "20 × 20 см · квадратная",
+          "widthMm": 200,
+          "heightMm": 200
+        },
+        {
+          "id": "square-30",
+          "label": "30 × 30 см · квадратная",
+          "widthMm": 300,
+          "heightMm": 300
+        },
+        {
+          "id": "square-25",
+          "label": "25 × 25 см · квадратная",
+          "widthMm": 250,
+          "heightMm": 250
+        },
+        {
+          "id": "landscape-40-30",
+          "label": "40 × 30 см · горизонтальная",
+          "widthMm": 400,
+          "heightMm": 300
+        }
       ],
+      "paperLabel": "Бумага",
+      "finishLabel": "Ламинация страниц",
       "papers": [
-        {"id":"paper-170","label":"Бумага · 170 г/м²"},
-        {"id":"paper-200","label":"Бумага · 200 г/м²"},
-        {"id":"paper-250","label":"Бумага · 250 г/м²"}
+        {
+          "id": "paper-200",
+          "label": "Бумага · 200 г/м²"
+        },
+        {
+          "id": "paper-250",
+          "label": "Бумага · 250 г/м² · flex bind",
+          "formats": [
+            "portrait-21-30",
+            "square-20",
+            "square-30",
+            "square-25"
+          ]
+        }
       ],
-      "finishes":[{"id":"matte","label":"Матовая"},{"id":"gloss","label":"Глянцевая"},{"id":"texture","label":"Фактурная"},{"id":"none","label":"Без ламинации"}],
-      "note":"От 10 до 120 страниц. Для бумаги 250 г/м² нужна ламинация. Остальные параметры подтвердим перед заказом."
+      "finishes": [
+        {
+          "id": "matte",
+          "label": "Матовая"
+        },
+        {
+          "id": "gloss",
+          "label": "Глянцевая"
+        },
+        {
+          "id": "texture",
+          "label": "Лёгкая фактура"
+        }
+      ],
+      "tracingPaper": true,
+      "note": "10–300 страниц, то есть 5–150 разворотов. Flex bind доступен для 21 × 30, 20 × 20, 25 × 25 и 30 × 30 см. Вариант 40 × 30 см требует отдельного согласования конструкции обложки."
     }
   ],
-  "covers":[
-    {"id":"photo","label":"Фотография на обложке","upgraded":false},
-    {"id":"material","label":"Переплётный материал · подберём оттенок","upgraded":true},
-    {"id":"eco","label":"Экокожа · подберём оттенок","upgraded":true}
+  "covers": [
+    {
+      "id": "photo",
+      "label": "Фотография на обложке",
+      "upgraded": false,
+      "note": "Полноцветное оформление обложки по вашей идее."
+    },
+    {
+      "id": "eco",
+      "label": "Экокожа",
+      "upgraded": true,
+      "note": "Цвет и конкретный материал подберём вместе. Можно обсудить надпись и прострочку."
+    },
+    {
+      "id": "material",
+      "label": "Переплётный материал",
+      "upgraded": true,
+      "note": "Бумажная основа с декоративной поверхностью. Оттенок и надпись согласуем отдельно."
+    },
+    {
+      "id": "fabric",
+      "label": "Ткань",
+      "upgraded": true,
+      "note": "Тканевая обложка. Оттенок и возможную вышивку обсудим перед заказом."
+    }
+  ],
+  "coverFinishes": [
+    {
+      "id": "gloss",
+      "label": "Глянцевая"
+    },
+    {
+      "id": "matte",
+      "label": "Матовая"
+    },
+    {
+      "id": "touch",
+      "label": "TouchCover · мягкая матовая",
+      "exceptFormats": [
+        "landscape-40-30"
+      ]
+    },
+    {
+      "id": "pearl",
+      "label": "Перламутровая"
+    }
   ]
 }
