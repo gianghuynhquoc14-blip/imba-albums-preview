@@ -6,7 +6,7 @@
  const groups=[['color','Цветная подсветка'],['canvas','Холст'],['dark','Тёмный фон'],['room','Кабинет со вспышкой'],['window','Свет от окна']];
  const examples=[
  ['color','color','Цветной фон и свет на лице'],
- ['canvas','canvas-30','Портреты на синем холсте'],['canvas','canvas-14','Портреты на сером холсте'],
+ ['canvas','canvas-14','Портреты на сером холсте'],
  ['dark','dark','Кабинет уходит в темноту'],
  ['room','room-29','Кабинет остаётся в кадре'],['room','room-14','Портреты в знакомом классе'],
  ['window','window','Мягкий свет от окна']
@@ -25,7 +25,7 @@
  room:'Вспышка освещает человека, кабинет остаётся виден. Выбирайте этот вариант, если хотите сохранить в памяти именно свой класс и его детали. Заранее приведите фон в порядок.',
  window:'Естественный свет от окна лучше выбирать для спокойного однотонного кабинета: белого, серого или с нейтральными тёплыми оттенками. Пёстрые яркие стены и предметы могут мешать общей цветовой картине. Подходящее место и время уточнит фотограф.'
  };
- if(!examples.some(v=>v.id===state.portrait))state.portrait=null;
+ if(state.portrait==='canvas-30')state.portrait='canvas-14';if(!examples.some(v=>v.id===state.portrait))state.portrait=null;
  let category=examples.find(v=>v.id===state.portrait)?.category||'color',index=0;
  const section=el('section');section.id='portraitStep';section.hidden=true;section.className='choice-section';section.append(el('p','04 · Портреты и виньетка'),el('h2','Послание себе в будущее.'),el('p','Начните со света и цвета. Затем продумайте образ и реквизит, которые расскажут о вас.'));
  const tabs=el('div');tabs.className='category-tabs';section.append(tabs);
