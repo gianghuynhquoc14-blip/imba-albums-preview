@@ -37,7 +37,7 @@
   $('commonExampleMount').append(examplesSection);core.showOverview();
  }
  function show(){
-  $('personalExampleMount').append(examplesSection);core.showPersonalView();core.scrollTo(host);$('vibePersonalTitle').focus({preventScroll:true});
+  $('personalExampleMount').append(examplesSection);core.showPersonalView();core.scrollTo(host);if(core.focusHeading)core.focusHeading('vibePersonalTitle');else $('vibePersonalTitle').focus({preventScroll:true});
  }
  function restore(){index=0;render();}
  $('vibeStepCover').onclick=()=>{core.returnCommon();};$('vibeStepPersonal').onclick=show;
