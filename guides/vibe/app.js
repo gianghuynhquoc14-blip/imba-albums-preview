@@ -415,6 +415,7 @@ function openPreparation(opener) {
   reset.addEventListener('click',()=>{preparationChecked.clear();list.querySelectorAll('input').forEach(input=>{input.checked=false;});update();list.querySelector('input').focus({preventScroll:true});});
   const footnote=el('div','preparation-footnote');footnote.append(el('span','','Личная памятка на этом устройстве.'),reset);body.append(footnote);update();
   const styleButton=el('button','dialog-link','Посмотреть варианты портретов ↗');styleButton.type='button';styleButton.addEventListener('click',()=>{stageOpener=null;stageDialog.close();goToSection(sections.findIndex(section=>section.id==='portraits'));});body.append(styleButton);
+  const creativeLink=el('a','dialog-link','Постановка портретов: одна идея для класса ↗');creativeLink.href='/guides/classic/preparation/?from=vibe#creative-portrait-idea';body.append(creativeLink);
   const timing=el('details');timing.append(el('summary','','Почему срок зависит от каждого?'),el('p','',notes.timing.lead+' '+notes.timing.action));body.append(timing);
   modalSetup(stageDialog,opener);
 }

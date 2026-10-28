@@ -1,0 +1,13 @@
+/* Only the optional creative-portrait explanation. */
+.classic-creative{margin:32px 0;padding:clamp(20px,4vw,42px);background:rgba(255,253,244,.88);border:1px solid #75826d;border-radius:12px;scroll-margin-top:100px}
+.classic-creative h2{font-size:clamp(25px,5vw,42px);line-height:1.15;overflow-wrap:anywhere;margin:10px 0 16px}
+.classic-creative p,.classic-creative li{line-height:1.7;overflow-wrap:anywhere}
+.classic-creative summary{cursor:pointer;font-weight:700;padding:16px 0;line-height:1.5;color:#244e3c}
+.classic-creative summary:focus-visible{outline:3px solid #c23c35;outline-offset:6px}
+.classic-creative-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:28px 0}
+.classic-creative figure{margin:0;min-width:0}
+.classic-creative img{display:block;width:100%;height:auto;border-radius:6px;background:#eee}
+.classic-creative figcaption{margin-top:10px;font-size:16px;line-height:1.6;overflow-wrap:anywhere}
+.classic-creative .creative-point{font-size:clamp(18px,3vw,23px);font-weight:700}
+#classic-photo-preparation{scroll-margin-top:100px}
+@media(max-width:600px){.classic-creative-grid{grid-template-columns:1fr;gap:25px}.classic-creative{margin:24px 0}.classic-creative .secondary-link{white-space:normal}}
