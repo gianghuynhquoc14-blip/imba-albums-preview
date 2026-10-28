@@ -42,6 +42,7 @@
  function restore(){index=0;render();}
  $('vibeStepCover').onclick=()=>{core.returnCommon();};$('vibeStepPersonal').onclick=show;
  $('backToCommon').onclick=()=>{core.returnCommon();};
+ $('overviewPersonal').onclick=show;
  $('overviewEditCover').onclick=()=>{core.showCover();};$('overviewTeachers').onclick=()=>core.showTeachers();
  $('commonExampleMount').append(examplesSection);render();
  // Keep imported personal data intact, but do not export browsed examples as decisions.
