@@ -8,7 +8,7 @@
   <meta name="description" content="Пошаговый конструктор альбома Изи: выберите обложку, примеры съёмки и получите PDF-задание для подготовки.">
   <meta name="robots" content="noindex,follow">
   <link rel="stylesheet" href="builder-simple.css?v=01d8b004493ae7ff5dbf99a8e49b88ea341c3d1e24f92bfa891c01e6de5f7db0">
-  <script src="builder-simple.js?v=ce3b11e9d26e19a1af6e86f0f1190915b4f89f13593dfdd8dce0daf57b095c3e" defer></script>
+  <script src="/assets/classic-shoot-order.js?v=e7fc9988b477426a5580b663fb8ac7f96eba9d1c77c49ab79fba0d5cd54fcd33" defer></script><script src="builder-simple.js?v=3e4a6ae86c4c02c9d6e76c6ed1510028f0272d384e8adcf27b762cb4357daa6b" defer></script>
   <script src="builder-teachers.js?v=bd82189918675a6253fbe8e8c5242523da442047f313d12b3cdf0242fa54fbfb" defer></script>
   <script src="builder-portraits.js?v=0d63b9b43921fac6887646cedfc8579addf3537ed22a65b7ad80ff0d15695bff" defer></script>
   <script src="builder-general.js?v=8cc9eb501a8785f50f524b83d3edbe64cbe240f5238e99373762f8b7711efff5" defer></script>
@@ -99,7 +99,7 @@
       <div id="selectionPreview" class="selection-preview"></div>
       <p id="personalSelectionText">Личный разворот пока не выбран.</p><div id="personalSelectionPreview" class="selection-preview"></div><div class="summary-actions"><button id="downloadPdf" class="primary" type="button" disabled>Скачать PDF с выбором</button><p>Это промежуточный PDF по выбранным шагам. Полное задание появится, когда будут заполнены все шаги.</p></div>
     </section>
-  </main>
+  <aside class="tips classic-shoot-order" aria-label="Рекомендуемый порядок съёмки классики"><h2>Рекомендуемый порядок съёмки классики</h2><ol><li>Сначала общая фотография класса.</li><li>Затем компании или фотобудка.</li><li>После — остальные общие кадры, которые хотите снять.</li><li>В конце — портреты по одному.</li></ol><p>После общих кадров и своего портрета фотограф сможет отпускать по одному тех, кто уже отснялся и больше не нужен в запланированных кадрах. Так торопящимся ребятам не придётся ждать окончания всех портретов.</p><p>Если начать с портретов, всему классу придётся оставаться до конца общих кадров. Заранее согласуйте порядок с фотографом: это рекомендация для дня классики, а не порядок разворотов в альбоме.</p></aside></main>
 
   <dialog id="zoomDialog"><button id="closeZoom" class="dialog-close" type="button" aria-label="Закрыть">×</button><img id="zoomImage" alt=""><p id="zoomCaption"></p></dialog>
   <dialog id="resetDialog"><h2>Начать заново?</h2><p>Выбор обложки, личного разворота и загруженные примеры будут удалены с этого устройства.</p><div><button id="cancelReset" type="button">Оставить черновик</button><button id="confirmReset" class="danger" type="button">Начать заново</button></div></dialog>
