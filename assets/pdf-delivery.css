@@ -1,0 +1,12 @@
+.pdf-delivery{padding:22px;border:2px solid #234a3a;border-radius:8px;background:#fffdf4;color:#1f2923;max-width:100%;box-sizing:border-box;scroll-margin-top:150px}
+.pdf-delivery h3{margin:0 0 10px;font:700 26px Georgia,serif}
+.pdf-delivery-name{overflow-wrap:anywhere;font:14px/1.5 monospace}
+.pdf-delivery-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:18px 0}
+.pdf-delivery-actions a,.pdf-delivery-actions button{box-sizing:border-box;max-width:100%;min-height:44px;padding:12px 18px;border:1px solid #234a3a;border-radius:4px;font:600 16px/1.35 Arial,sans-serif;text-align:center;text-decoration:none;color:#234a3a;background:#fff;cursor:pointer}
+.pdf-delivery-actions .pdf-delivery-share,.pdf-delivery-actions .pdf-delivery-save{background:#d9ae39;color:#171d17;border-color:#d9ae39}
+.pdf-delivery-actions :focus-visible{outline:3px solid #234a3a;outline-offset:3px}
+.pdf-delivery-actions button:disabled{opacity:.6;cursor:wait}
+.pdf-delivery-help,.pdf-delivery-status{font:16px/1.5 Arial,sans-serif;margin:12px 0 0;overflow-wrap:anywhere}
+.pdf-delivery-status:empty{display:none}
+#easyPdfDelivery,#coverPdfDelivery{grid-column:1/-1;min-width:0}
+@media(max-width:480px){.pdf-delivery{padding:16px}.pdf-delivery-actions{align-items:stretch}.pdf-delivery-actions a,.pdf-delivery-actions button{flex:1 1 100%}}

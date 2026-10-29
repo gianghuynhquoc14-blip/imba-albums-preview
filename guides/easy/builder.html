@@ -8,13 +8,15 @@
   <meta name="description" content="Пошаговый конструктор альбома Изи: выберите обложку, примеры съёмки и получите PDF-задание для подготовки.">
   <meta name="robots" content="noindex,follow">
   <link rel="stylesheet" href="builder-simple.css?v=01d8b004493ae7ff5dbf99a8e49b88ea341c3d1e24f92bfa891c01e6de5f7db0">
-  <script src="/assets/classic-shoot-order.js?v=e7fc9988b477426a5580b663fb8ac7f96eba9d1c77c49ab79fba0d5cd54fcd33" defer></script><script src="builder-simple.js?v=3e4a6ae86c4c02c9d6e76c6ed1510028f0272d384e8adcf27b762cb4357daa6b" defer></script>
+   <script src="/assets/pdf-delivery.js?v=03e1ecd99f4cd9404e30ffdb8a97a298d5ac5f1ce88f43d5fdcf9f62c13c95a0" defer></script>
+ <script src="/assets/classic-shoot-order.js?v=e7fc9988b477426a5580b663fb8ac7f96eba9d1c77c49ab79fba0d5cd54fcd33" defer></script><script src="builder-simple.js?v=72c9557c5028d4cf85720b2d1ab6bb3d5ea0b69313912e876c01f4b3ca080278" defer></script>
   <script src="builder-teachers.js?v=bd82189918675a6253fbe8e8c5242523da442047f313d12b3cdf0242fa54fbfb" defer></script>
   <script src="builder-portraits.js?v=6e18e09604660c67bb33f3e121578bd9ec20073beb19ec6ecade6db9d96f798a" defer></script>
   <script src="builder-general.js?v=8cc9eb501a8785f50f524b83d3edbe64cbe240f5238e99373762f8b7711efff5" defer></script>
   <script src="builder-companies.js?v=e0a7af081b2a8e797ad54b4f8d109402ba8305ca9958d8034aaacb20992fa5f8" defer></script>
   <script src="builder-fun.js?v=45b63b7b5a91caa7a6fbdca06c8f559132194d93dccf69fe3543861a597f0308" defer></script>
   <script src="builder-flow.js?v=e5d66195e1b69b8f09732a3e078c9a9138209363018759413866aaefd5e560d5" defer></script>
+ <link rel="stylesheet" href="/assets/pdf-delivery.css?v=21bdd2c56924c6259cf75cde8dd07f1bbecbd98620ae12ca47bf0a69dcae0f4d">
 </head>
 <body>
   <a class="skip" href="#main">К выбору обложки</a>
@@ -97,7 +99,8 @@
     <section class="summary" aria-labelledby="summaryTitle">
       <div><p class="eyebrow">Ваш выбор</p><h2 id="summaryTitle">Твои решения для альбома.</h2><p id="selectionText">Выберите один вариант обложки.</p></div>
       <div id="selectionPreview" class="selection-preview"></div>
-      <p id="personalSelectionText">Личный разворот пока не выбран.</p><div id="personalSelectionPreview" class="selection-preview"></div><div class="summary-actions"><button id="downloadPdf" class="primary" type="button" disabled>Скачать PDF с выбором</button><p>Это промежуточный PDF по выбранным шагам. Полное задание появится, когда будут заполнены все шаги.</p></div>
+      <p id="personalSelectionText">Личный разворот пока не выбран.</p><div id="personalSelectionPreview" class="selection-preview"></div><div class="summary-actions"><button id="downloadPdf" class="primary" type="button" disabled>Подготовить PDF с выбором</button><p>Это промежуточный PDF по выбранным шагам. Полное задание появится, когда будут заполнены все шаги.</p></div>
+      <div id="easyPdfDelivery" hidden></div>
     </section>
   <aside class="tips classic-shoot-order" aria-label="Рекомендуемый порядок съёмки классики"><h2>Рекомендуемый порядок съёмки классики</h2><ol><li>Сначала общая фотография класса.</li><li>Затем компании или фотобудка.</li><li>После — остальные общие кадры, которые хотите снять.</li><li>В конце — портреты по одному.</li></ol><p>После общих кадров и своего портрета фотограф сможет отпускать по одному тех, кто уже отснялся и больше не нужен в запланированных кадрах. Так торопящимся ребятам не придётся ждать окончания всех портретов.</p><p>Если начать с портретов, всему классу придётся оставаться до конца общих кадров. Заранее согласуйте порядок с фотографом: это рекомендация для дня классики, а не порядок разворотов в альбоме.</p></aside></main>
 
