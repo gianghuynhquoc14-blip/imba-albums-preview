@@ -37,18 +37,25 @@
   });
   const photoRef=id=>{if(id==null)return null;identifier(id,'ссылка на фотографию');if(!ids.has(id))throw Error('Макет ссылается на фотографию, которой нет в проекте.');return id;};
   result.cover={photoId:photoRef(raw.cover?.photoId),title:text(raw.cover?.title,200),subtitle:text(raw.cover?.subtitle,500)};
+  if(Object.hasOwn(raw.cover||{},'showText')){if(typeof raw.cover.showText!=='boolean')throw Error('Настройка надписей обложки повреждена.');result.cover.showText=raw.cover.showText;}
+  if(Object.hasOwn(raw.cover||{},'fit')){if(!['contain','cover'].includes(raw.cover.fit))throw Error('Настройка картинки обложки повреждена.');result.cover.fit=raw.cover.fit;}
   const spreadIds=new Set(),slotIds=new Set();result.spreads=raw.spreads.map(p=>{
    if(!p||!Object.hasOwn(layouts,p.layout)||!Array.isArray(p.slots)||p.slots.length!==layouts[p.layout].length)throw Error('Композиция разворота повреждена.');
    const id=identifier(p.id,'разворот');if(spreadIds.has(id))throw Error('Повтор идентификатора разворота.');spreadIds.add(id);
    if(p.layers!==undefined&&(!Array.isArray(p.layers)||p.layers.length>30))throw Error('Слишком много элементов оформления.');
    const layers=(p.layers||[]).map(l=>{if(!l||!['text','symbol'].includes(l.kind))throw Error('Элемент оформления повреждён.');return {id:identifier(l.id,'оформление'),kind:l.kind,text:text(l.text,500),x:typeof l.x==='number'&&Number.isFinite(l.x)?Math.max(0,Math.min(95,l.x)):10,y:typeof l.y==='number'&&Number.isFinite(l.y)?Math.max(0,Math.min(95,l.y)):10,size:typeof l.size==='number'&&Number.isFinite(l.size)?Math.max(12,Math.min(100,l.size)):28,color:/^#[a-f0-9]{6}$/i.test(l.color||'')?l.color:'#183e32',font:['serif','sans','italic'].includes(l.font)?l.font:'serif'};});
-   return {id,layout:p.layout,caption:text(p.caption,2000),background:/^#[a-f0-9]{6}$/i.test(p.background||'')?p.background:'#fffdf5',layers,edited:p.edited===true,slots:p.slots.map(s=>{
+   const edge={};if(Object.hasOwn(p,'edgeToEdge')){if(typeof p.edgeToEdge!=='boolean')throw Error('Настройка полей разворота повреждена.');edge.edgeToEdge=p.edgeToEdge;}
+   return {id,layout:p.layout,...edge,caption:text(p.caption,2000),background:/^#[a-f0-9]{6}$/i.test(p.background||'')?p.background:'#fffdf5',layers,edited:p.edited===true,slots:p.slots.map(s=>{
     const sid=identifier(s.id,'окошко');if(slotIds.has(sid))throw Error('Повтор идентификатора окошка.');slotIds.add(sid);
     return {id:sid,photoId:photoRef(s.photoId),fit:s.fit==='cover'?'cover':'contain',positionX:typeof s.positionX==='number'&&Number.isFinite(s.positionX)?Math.max(0,Math.min(100,s.positionX)):50,positionY:typeof s.positionY==='number'&&Number.isFinite(s.positionY)?Math.max(0,Math.min(100,s.positionY)):50,rotation:[0,90,180,270].includes(s.rotation)?s.rotation:0};
    })};
   });return result;
  }
  function placements(book){return book.spreads.flatMap(p=>p.slots.filter(s=>s.photoId).map(s=>({photoId:s.photoId,spreadId:p.id,slotId:s.id})));}
+ function rectangles(page){
+  const source=layouts[page.layout];if(!page.edgeToEdge)return copy(source);
+  return source.map(r=>{const panorama=page.layout==='panorama',right=r.left>=50;return rect(panorama?(r.left-4)/92*100:right?50+(r.left-54)/42*50:(r.left-4)/42*50,(r.top-6)/88*100,r.width/(panorama?92:42)*(panorama?100:50),r.height/88*100);});
+ }
  function unplaced(book){const used=new Set(placements(book).map(p=>p.photoId));return book.photos.filter(p=>!used.has(p.id)).map(p=>p.id);}
  function autofill(raw,{rebuildAutomatic=false}={}){
   const book=normalize(raw);if(rebuildAutomatic)for(const p of book.spreads)if(!p.edited){p.layout='two';p.slots=[slot(),slot()];}
@@ -67,5 +74,5 @@
  function moveSpread(raw,spreadId,direction){const book=normalize(raw),i=book.spreads.findIndex(p=>p.id===spreadId);if(i<0||![-1,1].includes(direction))throw Error('Не удалось выбрать разворот.');const j=i+direction;if(j>=0&&j<book.spreads.length)[book.spreads[i],book.spreads[j]]=[book.spreads[j],book.spreads[i]];return book;}
  function resize(raw,count){const book=normalize(raw);integer(count,1,200,'число разворотов');const removed=book.spreads.slice(count),returnedPhotoIds=[...new Set(removed.flatMap(p=>p.slots.map(s=>s.photoId).filter(Boolean)))];book.spreads=book.spreads.slice(0,count);while(book.spreads.length<count)book.spreads.push(spread());return {book,removedSpreadIds:removed.map(p=>p.id),returnedPhotoIds,requiresConfirmation:removed.some(p=>p.edited||p.caption||p.slots.some(s=>s.photoId))};}
  function review(raw){const book=normalize(raw),missing=book.photos.filter(p=>!p.available).map(p=>p.id),empty=book.spreads.filter(p=>!p.slots.some(s=>s.photoId)).map(p=>p.id);return {unplaced:unplaced(book),missingPhotos:missing,emptySpreads:empty,panoramas:book.spreads.filter(p=>p.layout==='panorama').map(p=>p.id)};}
- return {newBook,normalize,autofill,placements,unplaced,moveSpread,resize,review,layouts:copy(layouts)};
+ return {newBook,normalize,autofill,placements,unplaced,moveSpread,resize,review,rectangles,layouts:copy(layouts)};
 });
