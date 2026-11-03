@@ -8,3 +8,57 @@
 .drop-note{border-left:1px solid var(--ink);padding:10px 20px;rotate:-1deg}.drop-note p{font-family:var(--note-font);font-size:1.875rem;line-height:1.15;margin:7px 0;text-decoration:underline;text-decoration-color:var(--margin)}.drop-note strong{display:block;font-size:1rem;margin-top:18px}
 
 .page h2{scroll-margin-top:165px}@media(max-width:760px){.page h2{scroll-margin-top:90px}}
+
+.example-photo {
+ position: relative;
+ display: block;
+ cursor: zoom-in;
+}
+.example-photo-label {
+ position: absolute;
+ right: 8px;
+ bottom: 8px;
+ padding: 4px 9px;
+ background: var(--paper);
+ border: 1px solid var(--ink);
+ border-radius: 4px;
+ font-size: .875rem;
+ font-weight: 700;
+}
+body.photo-view-open { overflow: hidden; }
+.photo-view {
+ max-width: calc(100% - 16px);
+ max-height: calc(100% - 16px);
+ padding: 12px;
+ color: var(--ink);
+ background: var(--paper);
+ border: 1px solid var(--ink);
+ border-radius: 8px;
+ overflow: auto;
+}
+.photo-view::backdrop { background: #152033d9; }
+.photo-view-toolbar {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ flex-wrap: wrap;
+ gap: 8px 16px;
+ margin-bottom: 12px;
+}
+.photo-view-toolbar h2 { margin: 0; font-size: 1rem; }
+.photo-view figure { margin: 0; }
+.photo-view img {
+ display: block;
+ margin: auto;
+ max-width: 100%;
+ max-height: 70vh;
+ max-height: calc(100dvh - 10rem);
+ width: auto;
+ height: auto;
+ object-fit: contain;
+}
+.photo-view figcaption { margin: 8px 0; font-size: .9375rem; }
+.photo-view-original { font-size: .9375rem; }
+@media print {
+ .example-photo-label, .photo-view { display: none !important; }
+}

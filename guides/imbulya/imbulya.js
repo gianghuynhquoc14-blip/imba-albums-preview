@@ -17,4 +17,37 @@ setRole(read('role'));const hash=location.hash.slice(1);show(ids.includes(hash)?
 const print=document.getElementById('printGuide');print.hidden=false;print.onclick=()=>window.print();
 window.addEventListener('beforeprint',()=>{printState=[...document.querySelectorAll('.page details')].map(e=>[e,e.open]);printState.forEach(([e])=>e.open=true);});window.addEventListener('afterprint',()=>{printState.forEach(([e,open])=>e.open=open);printState=[];});
 const clear=document.getElementById('clearChecklist');clear.hidden=false;clear.onclick=()=>{if(!resetArmed){resetArmed=true;clear.textContent='Подтвердить снятие отметок';return;}checks.forEach(e=>{e.checked=false;write('check:'+e.dataset.check,null);});progress();resetArmed=false;clear.textContent='Снять мои отметки';if(storageOK)status.textContent='Отметки этой памятки сняты. Выбор фотографий и данные проекта не менялись.';};
+
+// Use the ordinary photo link when the browser has no native dialog.
+const photoDialog = document.getElementById('examplePhotoDialog');
+if (typeof photoDialog?.showModal === 'function') {
+ const photo = photoDialog.querySelector('img');
+ const caption = photoDialog.querySelector('figcaption');
+ const original = photoDialog.querySelector('.photo-view-original');
+ const close = photoDialog.querySelector('.photo-view-close');
+ const error = photoDialog.querySelector('.photo-view-error');
+ let opener = null;
+
+ photo.addEventListener('error', () => { error.hidden = false; });
+ document.querySelectorAll('.example-photo').forEach(link => {
+  link.addEventListener('click', event => {
+   if (event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || photoDialog.open) return;
+   const preview = link.querySelector('img');
+   opener = link;
+   caption.textContent = link.closest('figure').querySelector('figcaption').textContent;
+   error.hidden = true;
+   photo.alt = preview.alt;
+   photo.src = original.href = link.href;
+   photoDialog.showModal();
+   event.preventDefault();
+   document.body.classList.add('photo-view-open');
+  });
+ });
+ close.addEventListener('click', () => photoDialog.close());
+ photoDialog.addEventListener('close', () => {
+  document.body.classList.remove('photo-view-open');
+  opener?.focus({preventScroll:true});
+  opener = null;
+ });
+}
 })();
